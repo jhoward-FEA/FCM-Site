@@ -1,0 +1,52 @@
+<?php
+/**
+ * @file
+ * Code for the Career Profile feature.
+ */
+
+include_once 'career_profile.features.inc';
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function career_profile_theme_registry_alter(&$theme_registry) {
+    // Defined path to the current module.
+    $module_path = drupal_get_path('module', 'career_profile');
+    // Find all .tpl.php files in this module's folder recursively.
+    $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+    // Iterate through all found template file objects.
+    foreach ($template_file_objects as $key => $template_file_object) {
+        // If the template has not already been overridden by a theme.
+        if (!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+            // Alter the theme path and template elements.
+            $theme_registry[$key]['theme path'] = $module_path;
+            $theme_registry[$key] = array_merge($theme_registry[$key], $template_file_object);
+            $theme_registry[$key]['type'] = 'module';
+        }
+    }
+}
+function career_profile_mapping_tool_add_js($settingsKey)
+{
+    $filepath = variable_get('file_public_path', conf_path() . '/files');
+    drupal_add_js(array($settingsKey => array('career_profiles' => career_profile_list())), 'setting');
+    drupal_add_js(array('filePath' => $filepath), 'setting');
+    drupal_add_js(drupal_get_path('module', 'career_profile').'/careerProfileFunctions.js');
+    drupal_add_js('jQuery(document).ready(function (){ initProfile(); });', 'inline');
+}
+function career_profile_list(){
+    $nodes = array();
+    $query = new EntityFieldQuery();
+    $entities = $query->entityCondition('entity_type', 'node')
+                            ->entityCondition('bundle', 'career_profile')
+                            ->propertyCondition('status', 1)
+                            ->execute();
+    if(array_key_exists('node',$entities)){
+        $nodes = entity_load('node', array_keys($entities['node']));
+        foreach($nodes as &$node){
+            $alias = drupal_lookup_path('alias', "node/".$node->nid);
+            $node->alias = $alias;
+        }
+    }
+   
+    return $nodes;
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Canvas experiment</title>
+    <style>
+      text {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+      text.jobtitle {
+        font-weight: bold;
+      }
+    </style>
+
+    <script type="text/javascript" src="svg.js"></script>
+  </head>
+    <body style="background: #CCC;">
+
+      <div style="padding: 20px 5%; width: 1450px;">
+        
+        <div style="float: left;">
+          <svg width="160" height="700">
+            <rect x="0" y="0" width="160" height="700" fill="#FFFFFF" />
+          </svg>  
+        </div>
+
+        <div style="float: left">      
+        <svg width="1085" height="700">
+
+          <!-- background stripes -->
+        <rect x="0" y="0" width="1085" height="700" fill="#FFFFFF" />
+        <rect x="0" y="6" width="1085" height="163" fill="#eff0da" />
+        <rect x="0" y="181" width="1085" height="163" fill="#faebda" />
+        <rect x="0" y="356" width="1085" height="163" fill="#d5ebed" />
+        <rect x="0" y="531" width="1085" height="163" fill="#efe1e5" />
+
+
+      <!-- Building Commissioning Professional paths & highlights-->
+
+        <!-- Swimlane 1 -->
+          <g id="swimlane1-paths-3">
+            <line x1="105" y1="40" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. Mechanical Engineering to Commissioning Technician -->
+            <line x1="155" y1="120" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Energy Engineer to Building Commissioning Professional-->
+
+          <!-- Swimlane 1 Paths node highlights -->
+            
+            <circle cx="105" cy="40" r="15" fill="#666" /><!-- B.S. Mechanical Engineering -->
+            <circle cx="155" cy="120" r="15" fill="#666" /><!-- Energy Engineer -->
+          </g>
+
+          <!-- Swimlane 2 -->
+          <g id="swimlane2-paths-3">
+            <line x1="95" y1="315" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- HVAC Technician to Commissioning Technician -->
+            <line x1="180" y1="260" x2="360" y2="440" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. HVAC Tech to Controls Technician -->
+            <line x1="180" y1="260" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. HVAC Tech to Commissioning Technician -->
+
+            <!-- Swimlane 2 Paths node highlights -->
+            <circle cx="90" cy="315" r="15" fill="#666" /> <!-- HVAC Technician -->
+            <circle cx="185" cy="260" r="15" fill="#666" /> <!-- B.S. HVAC Tech -->
+
+          <!-- Swimlane 3 -->
+          <g id="swimlane3-paths-3">
+            <line x1="75" y1="440" x2="90" y2="315" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. HVAC Tech to HVAC Technician -->
+            <line x1="75" y1="440" x2="185" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. HVAC Tech to B.S HVAC Tech. -->
+            <line x1="155" y1="490" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Sheet Metal Worker to Commissioning Technician -->
+            <line x1="185" y1="390" x2="360" y2="440" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. Building Automation Tech to Controls Technician -->
+            <line x1="185" y1="390" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. Building Automation Tech to Commissioning Technician -->
+            <line x1="325" y1="475" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Controls Technician to Building Commissioning Professional -->
+            <line x1="360" y1="440" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Commissioning Technician to Building Commissioning Professional -->
+            <line x1="785" y1="410" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Commissioning Professional to Senior Commissioning Manager -->
+            <line x1="890" y1="490" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Commissioning Professional to President of Commissioning Firm -->
+
+
+
+          <!-- Swimlane 3 Paths node highlights -->
+            <circle cx="75" cy="440" r="15" fill="#666" /> <!-- A.S. HVAC Tech -->
+            <circle cx="155" cy="490" r="15" fill="#666" /> <!-- Sheet Metal Worker -->
+            <circle cx="185" cy="390" r="15" fill="#666" /> <!-- B.S. Building Automation Tech -->
+            <circle cx="325" cy="475" r="15" fill="#666" /> <!-- Commissioning Technician -->
+            <circle cx="360" cy="440" r="15" fill="#666" /> <!-- Controls Technician -->
+            <circle cx="785" cy="410" r="15" fill="#666" /> <!-- Senior Commissioning Manager -->
+            <circle cx="890" cy="490" r="15" fill="#666" /> <!-- President of Commissioning Firm -->
+          </g>
+
+          <!-- Swimlane 4 -->
+          <g id="swimlane4-paths-3">
+            <line x1="165" y1="660" x2="185" y2="390" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. Electro. Mech. Maint. Tech to B.S. Building Automation Tech -->
+
+
+          <!-- Swimlane 4 Paths node highlights -->            
+            <circle cx="165" cy="660" r="15" fill="#666" /> <!-- A.S. Electro. Mech. Maint. Tech -->
+          </g>
+
+          <!-- nodes --> 
+
+          <g id="swimlane1-nodes-3">
+            <circle cx="105" cy="40" r="10" fill="#6eaf45" /> <!-- B.S. Mechanical Eng. -->
+            <circle cx="155" cy="120" r="10" fill="#6eaf45" /> <!-- Energy Engineer -->
+          </g>
+          <g id="swimlane2-nodes-3">
+            <circle cx="90" cy="315" r="10" fill="#f7931f" /> <!-- HVAC Technician -->
+            <circle cx="185" cy="260" r="10" fill="#f7931f" /> <!-- B.S. HVAC Tech -->
+          </g>
+          <g id="swimlane3-nodes-3">
+            <circle cx="75" cy="440" r="10" fill="#00919f" /> <!-- A.S. HVAC Tech -->
+            <circle cx="155" cy="490" r="10" fill="#00919f" /> <!-- Sheet Metal Worker -->
+            <circle cx="185" cy="390" r="10" fill="#00919f" /> <!-- B.S. Building Automation Tech -->
+            <circle cx="325" cy="475" r="10" fill="#00919f" /> <!-- Commissioning Technician -->
+            <circle cx="360" cy="440" r="10" fill="#00919f" /> <!-- Controls Technician -->
+            <circle cx="785" cy="410" r="10" fill="#00919f" /> <!-- Senior Commissioning Manager -->
+            <circle cx="890" cy="490" r="10" fill="#00919f" /> <!-- President of Commissioning Firm -->
+          </g>
+          <g id="swimlane4-nodes-3">
+            <circle cx="165" cy="660" r="10" fill="#ac4c6a" /> <!-- A.S. Electro. Mech. Maint. Tech -->
+          </g>
+
+          <!-- text -->
+
+          <g id="swimlane1-text">
+            <text class="jobtitle" text-anchor="middle" x="100" y="25">B.S. Mechanical Eng.</text> <text class="jobtitle" text-anchor="middle" x="150" y="105">Energy Engineer</text>
+          </g>
+          <g id="swimlane2-text"> 
+            <text class="jobtitle" text-anchor="middle" x="90" y="300">HVAC Technician</text>
+            <text class="jobtitle" text-anchor="middle" x="185" y="245">B.S. HVAC Tech</text>
+          </g>
+          <g id="swimlane3-text">
+            <text class="jobtitle" text-anchor="middle" x="80" y="425">A.S. HVAC Tech</text> <text class="jobtitle" text-anchor="middle" x="155" y="475">Sheet Metal Worker</text>
+            <text class="jobtitle" text-anchor="middle" x="175" y="375">B.S. Building Automation Tech</text>
+            <text class="jobtitle" text-anchor="middle" x="325" y="460">Commissioning Technician</text>
+            <text class="jobtitle" text-anchor="middle" x="360" y="425">Controls Technician</text>
+            <text class="jobtitle" text-anchor="middle" x="785" y="395">Senior Commissioning Manager</text>
+            <text class="jobtitle" text-anchor="middle" x="890" y="475">President of Commissioning Firm</text>
+          </g>
+          <g id="swimlane4-text">
+            <text class="jobtitle" text-anchor="middle" x="165" y="645">A.S. Electro. Mech. Maint. Tech</text>
+          </g>
+
+
+          <!-- images -->
+
+          <!-- Draw images and circles -->
+          <g id="cert-icons" transform="translate(472,15)">
+            <g class="image" transform="translate(0,0)">
+              <rect x="0" y="0" width="121" height="134" rx="10" ry="10" fill="#6eaf45" stroke="#666" stroke-width="5" />
+            </g>
+            <g class="image" transform="translate(0,181)">
+              <rect x="0" y="0" width="121" height="134" rx="10" ry="10" fill="#f7931f" stroke="#666" stroke-width="5" />
+            </g>
+            <g class="image" transform="translate(0,356)">
+              <rect x="0" y="0" width="121" height="134" rx="10" ry="10" fill="#00919f" stroke="#666" stroke-width="5" />
+            </g>
+            <g class="image" transform="translate(0,531)">
+              <rect x="0" y="0" width="121" height="134" rx="10" ry="10" fill="#ac4c6a" stroke="#666" stroke-width="5" />
+            </g>
+          </g>
+
+        </svg>
+      </div>
+      <div style="float: left;">
+          <svg width="200" height="700">
+            <rect x="0" y="0" width="200" height="700" fill="#FFFFFF" />
+          </svg>  
+        </div>
+
+    </body>
+  </html>
+
+
+
+
+  <!-- <!DOCTYPE html>
+  <html>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>canvas test</title>
+  	<script type="text/javascript" src="/wp-admin/themes/twentysixteen-child/mycanvas.js"></script>
+  	<link rel="stylesheet" type="text/css" href="mycanvas.css">
+  </head>
+  <body>
+  <img id="myImage" src="myimage.png" alt="My Image">
+  <canvas id="myCanvas" width="600px" height="400px">My Canvas Element</canvas>
+  </body>
+</html> -->

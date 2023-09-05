@@ -1,0 +1,43 @@
+.imgCol{float:left;text-align:center;padding:5px;}
+.career_profile_headshot{max-width:350px;}
+.career_profile_name{
+    max-width:325px;
+    margin-left:auto;
+    margin-right:auto;
+    font-weight:bold;
+    font-size:14px;
+    height:50px;
+}
+.career_profile_path{margin-top:-85px;}
+.node-type-career-profile #page-title{
+    float:right;
+    background-image: url("images/title-banner-600.png");
+    background-position: 10px 0px;
+    background-repeat: no-repeat;
+    /*margin:10px 0px 10px 0px;*/
+    height:75px;
+    width:600px;
+    text-align:right;
+    line-height: 65px;
+    padding-right: 10px;
+}
+.node-type-career-profile h1#page-title{
+    font-size:1.6em;
+}
+#careerProfile{
+    background-image: url("images/sidebanner-5.png");
+    z-index: 1;
+    background-position: -60px 0px;
+}
+#careerProfile +div{
+    text-align:center;
+}
+#careerProfileThumbnail, #careerProfileLearnMore {
+    cursor: pointer;
+}
+#careerProfileThumbnail{
+    float:left;
+}
+#careerProfile +div p{
+font-size:.8em;
+}

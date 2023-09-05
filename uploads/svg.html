@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Canvas experiment</title>
+    <style>
+      text {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+      text.jobtitle {
+        font-weight: bold;
+        opacity: 0.0;
+        pointer-events: none;
+      }
+      .fade-in {
+        transition: opacity 200ms ease-in;
+      }
+      .fade-out {
+        transition: opacity 500ms ease-out;
+      }
+      .highlights {
+        opacity: 0;
+      }
+      #sidebarText p {
+        padding: 5px 15px;
+        font-size: 0.9em;
+      }
+      #sidebarText p:empty {
+        grid-area: sidebarText;
+        display: none;
+      }
+      .job {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+      .info-banner {
+        position: relative;
+      }
+      .text-overlay {
+        position: absolute;
+        top: 15%;
+        left: 20%;
+      }
+      p.text-overlay {
+        font-family: Cantarell, Helvetica, "Helvetica Neue", "Trebuchet MS", Arial, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      a p.text-overlay {
+        color: #000;
+      }
+    </style>
+
+    <!-- <script type="text/javascript" src="svg.js"></script> -->
+  </head>
+    <body style="background: #CCC;">
+
+      <div style="padding: 20px 5%; width: 1450px;">
+        
+        <div style="float: left;">
+          <svg width="160" height="700">
+            <rect x="0" y="0" width="160" height="700" fill="#FFFFFF" />
+          </svg>  
+        </div>
+
+        <div style="float: left">      
+        <svg id="career-map-container" width="1085" height="700">
+
+          <!-- background stripes -->
+          <rect x="0" y="0" width="1085" height="700" fill="#FFFFFF" />
+          <rect class="not2 not3 not4" x="0" y="6" width="1085" height="163" fill="#eff0da" />
+          <rect class="not1 not3 not4" x="0" y="181" width="1085" height="163" fill="#faebda" />
+          <rect class="not1 not2 not4" x="0" y="356" width="1085" height="163" fill="#d5ebed" />
+          <rect class="not1 not2 not3" x="0" y="531" width="1085" height="163" fill="#efe1e5" />
+
+          <!-- Building Commissioning Professional paths -->
+
+          <!-- Swimlane 1 -->
+
+          <g id="swimlane1-paths-1">
+            <!-- B.S. Mechanical Engineering to Sustainability Specialist-->
+            <line class="highlights track1 path1 path5 path6 path7" x1="105" y1="40" x2="350" y2="135" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Energy Engineer to Building Energy Manager Certification -->
+            <line class="highlights track1 path2 path5 path6 path7" x1="155" y1="120" x2="542" y2="81" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Sustainability Specialist to Building Energy Manager Certification -->
+            <line class="highlights track1 path1 path4 path5 path6 path7" x1="350" y1="135" x2="542" y2="81" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Federal Energy Engineer to Building Energy Manager Certification -->
+            <line class="highlights track1 path3 path5 path6 path7" x1="235" y1="75" x2="542" y2="81" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Energy Manager Certification to Chief Sustainability Officer -->
+            <line class="highlights track1 path1 path2 path5" x1="543" y1="81" x2="705" y2="55" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Energy Manager Certification to Regional Energy Manager -->
+            <line class="highlights track1 path1 path2 path3 path4 path6 path7" x1="543" y1="81" x2="765" y2="110" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Energy Manager Certification to CEO/Owner of Energy Firm -->
+            <line class="highlights track1 path1 path2 path3 path4 path7" x1="543" y1="81" x2="895" y2="140" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Energy Consultant to Building Energy Manager Certification -->
+            <line class="highlights track1 path1 path3 path4 path5 path6 path7" x1="370" y1="260" x2="542" y2="81" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <g id="swimlane1-paths-2">
+            <!-- B.S. Mechanical Engineering to Energy Consultant -->
+            <line class="highlights track1 path1 path5 path6 path7" x1="105" y1="40" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Energy Engineer to Building Energy Auditor -->
+            <line class="highlights track2 path2" x1="155" y1="120" x2="540" y2="270" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Energy Auditor to CEO/Owner of Energy Firm -->
+            <line class="highlights track2 path1" x1="541" y1="270" x2="895" y2="140" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <g id="swimlane1-paths-3">
+            <!-- B.S. Mechanical Engineering to Commissioning Technician -->
+            <line class="highlights track3 path1" x1="105" y1="40" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Energy Engineer to Building Commissioning Professional-->
+            <line class="highlights track3 path2" x1="155" y1="120" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+          <g id="swimlane1-paths-4">
+            <!-- B.S. Mechanical Engineering to Federal Facility Manager -->
+            <line class="highlights track4 path1" x1="105" y1="40" x2="375" y2="620" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <!-- Swimlane 2 -->
+
+          <g id="swimlane2-paths-1">
+            <!-- HVAC Technician to Energy Consultant -->
+            <line class="highlights track1 path5 path6 path7" x1="95" y1="315" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Air Force HVACR to Energy Consultant -->
+            <line class="highlights track1 path5 path6 path7" x1="100" y1="240" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- B.S. HVAC Tech to Energy Consultant -->
+            <line class="highlights track1 path5 path6 path7" x1="180" y1="260" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Construction and Building Inspectors to Energy Consultant -->
+            <line class="highlights track1 path5 path6 path7" x1="220" y1="215" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Residential Energy Assessor to Energy Consultant -->
+            <line class="highlights track1 path5 path6 path7" x1="270" y1="295" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <g id="swimlane2-paths-2">
+            <!-- HVAC Technician to Energy Consultant -->
+            <line class="highlights track2" x1="95" y1="315" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Air Force HVACR to Energy Consultant -->
+            <line class="highlights track2" x1="100" y1="240" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- B.S. HVAC Tech to Energy Consultant -->
+            <line class="highlights track2" x1="180" y1="260" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Construction and Building Inspectors to Energy Consultant -->
+            <line class="highlights track2" x1="220" y1="215" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Residential Energy Assessor to Energy Consultant -->
+            <line class="highlights track2" x1="270" y1="295" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Energy Consultant to Building Energy Auditor -->
+            <line class="highlights track2 path1" x1="370" y1="260" x2="540" y2="270" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Energy Auditor to Senior Energy Auditor -->
+            <line class="highlights track2 path1 path2" x1="541" y1="270" x2="770" y2="295" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+             <!-- Building Energy Auditor to Senior Technical Specialist -->
+            <line class="highlights track2 path1 path2" x1="541" y1="270" x2="885" y2="240" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <g id="swimlane2-paths-3">
+            <!-- HVAC Technician to Commissioning Technician -->
+            <line class="highlights track3" x1="95" y1="315" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- B.S. HVAC Tech to Controls Technician -->
+            <line class="highlights track3" x1="180" y1="260" x2="360" y2="440" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- B.S. HVAC Tech to Commissioning Technician -->
+            <line class="highlights track3" x1="180" y1="260" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <g id="swimlane2-paths-4">
+            <!-- Air Force HVACR to Building Engineer -->
+            <line class="highlights track4" x1="95" y1="240" x2="395" y2="565" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- B.S. HVAC Tech to Building Engineer -->
+            <line class="highlights track4" x1="180" y1="260" x2="395" y2="565" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- HVAC Technician to Building Engineer -->
+            <line class="highlights track4" x1="95" y1="315" x2="395" y2="565" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <!-- Swimlane 3 -->
+          <g id="swimlane3-paths-1">
+            <!-- A.S. HVAC Tech to B.S. HVAC Tech -->
+            <line class="highlights track1" x1="75" y1="440" x2="185" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <g id="swimlane3-paths-2">
+            <!-- A.S. HVAC Tech to B.S. HVAC Tech -->
+            <line class="highlights track2 path5 path6 path7" x1="75" y1="440" x2="185" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- A.S. HVAC Tech to HVAC Technician -->
+            <line class="highlights track2 path5 path6 path7" x1="75" y1="440" x2="90" y2="315" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- B.S. Building Automation Tech to Energy Consultant -->
+            <line class="highlights track2 path5 path6 path7" x1="185" y1="390" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <g id="swimlane3-paths-3">
+            <!-- A.S. HVAC Tech to HVAC Technician -->
+            <line class="highlights track3" x1="75" y1="440" x2="90" y2="315" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- A.S. HVAC Tech to B.S HVAC Tech. -->
+            <line class="highlights track3" x1="75" y1="440" x2="185" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Sheet Metal Worker to Commissioning Technician -->
+            <line class="highlights track3" x1="155" y1="490" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- B.S. Building Automation Tech to Controls Technician -->
+            <line class="highlights track3" x1="185" y1="390" x2="360" y2="440" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- B.S. Building Automation Tech to Commissioning Technician -->
+            <line class="highlights track3" x1="185" y1="390" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Controls Technician to Building Commissioning Professional -->
+            <line class="highlights track3" x1="325" y1="475" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Commissioning Technician to Building Commissioning Professional -->
+            <line class="highlights track3 path1" x1="325" y1="475" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Commissioning Professional to Senior Commissioning Manager -->
+            <line class="highlights track3 path1 path2" x1="785" y1="410" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Commissioning Professional to President of Commissioning Firm -->
+            <line class="highlights track3 path1 path2" x1="890" y1="490" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <g id="swimlane3-paths-4">
+            <!-- A.S. HVAC Tech to HVAC Technician -->
+            <line class="highlights track4" x1="75" y1="440" x2="90" y2="315" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- A.S. HVAC Tech to B.S HVAC Tech. -->
+            <line class="highlights track4" x1="75" y1="440" x2="185" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- A.S. HVAC Tech to Maintenance Technician -->
+            <line class="highlights track4" x1="75" y1="440" x2="315" y2="645" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- A.S. HVAC Tech to Superintendent -->
+            <line class="highlights track4" x1="75" y1="440" x2="410" y2="650" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+
+          </g>
+
+          <!-- Swimlane 4 -->
+
+          <g id="swimlane4-paths-1">
+            <!-- Electrician to Energy Consultant -->
+            <line class="highlights track1 path5 path6 path7" x1="70" y1="555" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- A.S. Electro. Mech. Maint. Tech to B.S Building Automation Tech -->
+            <line class="highlights track1 path5 path6 path7" x1="165" y1="660" x2="185" y2="390" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Navy UT Utilitiesman to Energy Consultant -->
+            <line class="highlights track1 path5 path6 path7" x1="245" y1="580" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <g id="swimlane4-paths-2">
+            <!-- Electrician to Energy Consultant -->
+            <line class="highlights track2" x1="70" y1="555" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Navy UT Utilitiesman to Energy Consultant -->
+            <line class="highlights track2" x1="245" y1="580" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- A.S. Electro. Mech. Maint. Tech to Energy Consultant -->
+            <line class="highlights track2" x1="165" y1="660" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <g id="swimlane4-paths-3">
+            <!-- A.S. Electro. Mech. Maint. Tech to B.S. Building Automation Tech -->
+            <line class="highlights track3" x1="165" y1="660" x2="185" y2="390" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <g id="swimlane4-paths-4">
+            <!-- Electrician to Building Engineer -->
+            <line class="highlights track4" x1="70" y1="555" x2="395" y2="565" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- A.S. Building Maint. Tech to Maintenance Technician -->
+            <line class="highlights track4" x1="110" y1="615" x2="315" y2="645" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- A.S. Electro. Mech. Maint. Tech to Maintenance Technician -->
+            <line class="highlights track4" x1="165" y1="660" x2="315" y2="645" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Navy UT Utilitiesman to Building Engineer -->
+            <line class="highlights track4" x1="245" y1="580" x2="395" y2="565" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Maintenance Technician to Building Engineer -->
+            <line class="highlights track4" x1="315" y1="645" x2="395" y2="565" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Federal Facility Specialist to Federal Facility Manager -->
+            <line class="highlights track4" x1="350" y1="550" x2="375" y2="620" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Federal Facility Manager to Building Operations Professional -->
+            <line class="highlights track4 path1" x1="375" y1="620" x2="542" y2="618" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Engineer to Building Operations Professional -->
+            <line class="highlights track4" x1="395" y1="565" x2="542" y2="618" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Superintendent to Building Operations Professional -->
+            <line class="highlights track4" x1="410" y1="650" x2="542" y2="618" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Operations Professional to Senior Manager of Operations -->
+            <line class="highlights track4 path1" x1="542" y1="618" x2="680" y2="560" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Operations Professional to Chief Building Engineer -->
+            <line class="highlights track4 path1" x1="542" y1="618" x2="710" y2="650" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Operations Professional to Chief Engineer (Federal O&M Contractor) -->
+            <line class="highlights track4 path1" x1="542" y1="618" x2="850" y2="615" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Operations Professional to Regional Facility Manager -->
+            <line class="highlights track4 path1" x1="542" y1="618" x2="970" y2="550" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+            <!-- Building Operations Professional to Director of Maintenance -->
+            <line class="highlights track4 path1" x1="542" y1="618" x2="965" y2="665" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          </g>
+
+          <!-- Node Highlights -->
+          <g id="node-highlights">
+            <!-- lane 1 -->
+            <circle class="highlights track1 track2 track3 track4 path1" cx="105" cy="40" r="15" fill="#666" /><!-- B.S. Mechanical Engineering -->
+            <circle class="highlights track1 track2 track3" cx="155" cy="120" r="15" fill="#666" /><!-- Energy Engineer -->
+            <circle class="highlights track1 path3" cx="235" cy="75" r="15" fill="#666" /><!-- Federal Energy Engineer -->
+            <circle class="highlights track1 path1" cx="350" cy="135" r="15" fill="#666" /><!-- Sustainability Specialist -->
+            <circle class="highlights track1 path1" cx="705" cy="55" r="15" fill="#666" /><!-- Chief Sustainability Officer -->
+            <circle class="highlights track1 path1" cx="765" cy="110" r="15" fill="#666" /><!-- Regional Energy Manager -->
+            <circle class="highlights track1 track2 path1" cx="895" cy="140" r="15" fill="#666" /><!-- CEO/Owner of Energy Firm -->
+            <!-- lane 2 -->
+            <circle class="highlights track1 track2 track3 track4" cx="90" cy="315" r="15" fill="#666" /> <!-- HVAC Technician -->
+            <circle class="highlights track1 track2 track4" cx="95" cy="240" r="15" fill="#666" /> <!-- Air Force HVACR -->
+            <circle class="highlights track1 track2 track3 track4" cx="185" cy="260" r="15" fill="#666" /> <!-- B.S. HVAC Tech -->
+            <circle class="highlights track1 track2" cx="220" cy="215" r="15" fill="#666" /> <!-- Construction and Building Inspectors -->
+            <circle class="highlights track1 track2" cx="270" cy="295" r="15" fill="#666" /> <!-- Residential Energy Assessor -->
+            <circle class="highlights track1 track2 path1" cx="370" cy="260" r="15" fill="#666" /> <!-- Energy Consultant -->
+            <circle class="highlights track2 path1" cx="770" cy="295" r="15" fill="#666" /> <!-- Senior Energy Auditor -->
+            <circle class="highlights track2 path1" cx="885" cy="240" r="15" fill="#666" /> <!-- Senior Technical Specialist -->
+            <!-- lane 3 -->
+            <circle class="highlights track1 track2 track3 track4" cx="75" cy="440" r="15" fill="#666" /> <!-- A.S. HVAC Tech -->
+            <circle class="highlights track3" cx="155" cy="490" r="15" fill="#666" /> <!-- Sheet Metal Worker -->
+            <circle class="highlights track1 track2 track3" cx="185" cy="390" r="15" fill="#666" /> <!-- B.S. Building Automation Tech -->
+            <circle class="highlights track3 path1" cx="325" cy="475" r="15" fill="#666" /> <!-- Commissioning Technician -->
+            <circle class="highlights track3" cx="360" cy="440" r="15" fill="#666" /> <!-- Controls Technician -->
+            <circle class="highlights track3 path1" cx="785" cy="410" r="15" fill="#666" /> <!-- Senior Commissioning Manager -->
+            <circle class="highlights track3 path1" cx="890" cy="490" r="15" fill="#666" /> <!-- President of Commissioning Firm -->
+            <!-- lane 4 -->
+            <circle class="highlights track1 track2 track4" cx="70" cy="555" r="15" fill="#666" /> <!-- Electrician -->
+            <circle class="highlights track4" cx="110" cy="615" r="15" fill="#666" /> <!-- A.S. Building Maint. Tech -->
+            <circle class="highlights track1 track2 track3 track4" cx="165" cy="660" r="15" fill="#666" /> <!-- A.S. Electro. Mech. Maint. Tech -->
+            <circle class="highlights track1 track2 track4" cx="245" cy="580" r="15" fill="#666" /> <!-- Navy UT Utilitiesman -->
+            <circle class="highlights track4" cx="315" cy="645" r="15" fill="#666" /> <!-- Maintenance Technician -->
+            <circle class="highlights track4" cx="350" cy="550" r="15" fill="#666" /> <!-- Federal Facility Specialist -->
+            <circle class="highlights track4 path1" cx="375" cy="620" r="15" fill="#666" /> <!-- Federal Facility Manager -->
+            <circle class="highlights track4" cx="395" cy="565" r="15" fill="#666" /> <!-- Building Engineer -->
+            <circle class="highlights track4" cx="410" cy="650" r="15" fill="#666" /> <!-- Superintendent -->
+            <circle class="highlights track4 path1" cx="680" cy="560" r="15" fill="#666" /> <!-- Senior Manager of Operations -->
+            <circle class="highlights track4 path1" cx="710" cy="650" r="15" fill="#666" /> <!-- Chief Building Engineer -->
+            <circle class="highlights track4 path1" cx="850" cy="615" r="15" fill="#666" /> <!-- Chief Engineer (Federal O&M Contractor) -->
+            <circle class="highlights track4 path1" cx="970" cy="550" r="15" fill="#666" /> <!-- Regional Facility Manager -->
+            <circle class="highlights track4 path1" cx="965" cy="665" r="15" fill="#666" /> <!-- Director of Maintenance -->
+          </g>
+
+          <!-- nodes --> 
+
+          <g id="swimlane1-nodes">
+            <!-- B.S. Mechanical Eng. -->
+            <circle id="job1" class="fade-in fade-out" cx="105" cy="40" r="10" fill="#6eaf45" />
+            <!-- Energy Engineer -->
+            <circle id="job2" class="fade-in fade-out not4" cx="155" cy="120" r="10" fill="#6eaf45" />
+            <!-- Federal Energy Engineer -->
+            <circle id="job3" class="fade-in fade-out not2 not3 not4" cx="235" cy="75" r="10" fill="#6eaf45" />
+            <!-- Sustainability Specialist -->
+            <circle id="job4" class="fade-in fade-out not2 not3 not4" cx="350" cy="135" r="10" fill="#6eaf45" />
+            <!-- Chief Sustainability Officer -->
+            <circle id="job5" class="fade-in fade-out not2 not3 not4" cx="705" cy="55" r="10" fill="#6eaf45" />
+            <!-- Regional Energy Manager -->
+            <circle id="job6" class="fade-in fade-out not2 not3 not4" cx="765" cy="110" r="10" fill="#6eaf45" />
+            <!-- CEO/Owner of Energy Firm -->
+            <circle id="job7" class="fade-in fade-out not3 not4" cx="895" cy="140" r="10" fill="#6eaf45" />
+          </g>
+          <g id="swimlane2-nodes">
+            <!-- HVAC Technician -->
+            <circle id="job8" class="fade-in fade-out" cx="90" cy="315" r="10" fill="#f7931f" />
+            <!-- Air Force HVACR -->
+            <circle id="job9" class="fade-in fade-out not3" cx="95" cy="240" r="10" fill="#f7931f" />
+            <!-- B.S. HVAC Tech -->
+            <circle id="job10" class="fade-in fade-out" cx="185" cy="260" r="10" fill="#f7931f" />
+            <!-- Construction and Building Inspectors -->
+            <circle id="job11" class="fade-in fade-out not3 not4" cx="220" cy="215" r="10" fill="#f7931f" />
+            <!-- Residential Energy Assessor -->
+            <circle id="job12" class="fade-in fade-out not3 not4" cx="270" cy="295" r="10" fill="#f7931f" />
+            <!-- Energy Consultant -->
+            <circle id="job13" class="fade-in fade-out not3 not4" cx="370" cy="260" r="10" fill="#f7931f" />
+            <!-- Senior Energy Auditor -->
+            <circle id="job14" class="fade-in fade-out not1 not3 not4" cx="770" cy="295" r="10" fill="#f7931f" />
+            <!-- Senior Technical Specialist -->
+            <circle id="job15" class="fade-in fade-out not1 not3 not4" cx="885" cy="240" r="10" fill="#f7931f" />
+          </g>
+          <g id="swimlane3-nodes">
+            <!-- A.S. HVAC Tech -->
+            <circle id="job16" class="fade-in fade-out" cx="75" cy="440" r="10" fill="#00919f" />
+            <!-- Sheet Metal Worker -->
+            <circle id="job17" class="fade-in fade-out not1 not2 not4" cx="155" cy="490" r="10" fill="#00919f" />
+            <!-- B.S. Building Automation Tech -->
+            <circle id="job18" class="fade-in fade-out not4" cx="185" cy="390" r="10" fill="#00919f" />
+            <!-- Commissioning Technician -->
+            <circle id="job19" class="fade-in fade-out not1 not2 not4" cx="325" cy="475" r="10" fill="#00919f" />
+            <!-- Controls Technician -->
+            <circle id="job20" class="fade-in fade-out not1 not2 not4" cx="360" cy="440" r="10" fill="#00919f" />
+            <!-- Senior Commissioning Manager -->
+            <circle id="job21" class="fade-in fade-out not1 not2 not4" cx="785" cy="410" r="10" fill="#00919f" />
+            <!-- President of Commissioning Firm -->
+            <circle id="job22" class="fade-in fade-out not1 not2 not4" cx="890" cy="490" r="10" fill="#00919f" />
+          </g>
+          <g id="swimlane4-nodes">
+            <!-- Electrician -->
+            <circle id="job23" class="fade-in fade-out not3" cx="70" cy="555" r="10" fill="#ac4c6a" />
+            <!-- A.S. Building Maint. Tech -->
+            <circle id="job24" class="fade-in fade-out not1 not2 not3" cx="110" cy="615" r="10" fill="#ac4c6a" />
+            <!-- A.S. Electro. Mech. Maint. Tech -->
+            <circle id="job25" class="fade-in fade-out" cx="165" cy="660" r="10" fill="#ac4c6a" />
+            <!-- Navy UT Utilitiesman -->
+            <circle id="job26" class="fade-in fade-out not3" cx="245" cy="580" r="10" fill="#ac4c6a" />
+            <!-- Maintenance Technician -->
+            <circle id="job27" class="fade-in fade-out not1 not2 not3" cx="315" cy="645" r="10" fill="#ac4c6a" />
+            <!-- Federal Facility Specialist -->
+            <circle id="job28" class="fade-in fade-out not1 not2 not3" cx="350" cy="550" r="10" fill="#ac4c6a" />
+            <!-- Federal Facility Manager -->
+            <circle id="job29" class="fade-in fade-out not1 not2 not3" cx="375" cy="620" r="10" fill="#ac4c6a" />
+            <!-- Building Engineer -->
+            <circle id="job30" class="fade-in fade-out not1 not2 not3" cx="395" cy="565" r="10" fill="#ac4c6a" />
+            <!-- Superintendent -->
+            <circle id="job31" class="fade-in fade-out not1 not2 not3" cx="410" cy="650" r="10" fill="#ac4c6a" />
+            <!-- Senior Manager of Operations -->
+            <circle id="job32" class="fade-in fade-out not1 not2 not3" cx="680" cy="560" r="10" fill="#ac4c6a" />
+            <!-- Chief Building Engineer -->
+            <circle id="job33" class="fade-in fade-out not1 not2 not3" cx="710" cy="650" r="10" fill="#ac4c6a" />
+            <!-- Chief Engineer (Federal O&M Contractor) -->
+            <circle id="job34" class="fade-in fade-out not1 not2 not3" cx="850" cy="615" r="10" fill="#ac4c6a" />
+            <!-- Regional Facility Manager -->
+            <circle id="job35" class="fade-in fade-out not1 not2 not3" cx="970" cy="550" r="10" fill="#ac4c6a" />
+            <!-- Director of Maintenance -->
+            <circle id="job36" class="fade-in fade-out not1 not2 not3" cx="965" cy="665" r="10" fill="#ac4c6a" />
+          </g>
+
+          <!-- text -->
+
+          <g id="swimlane1-text">
+            <text class="jobtitle track1 track2 track3 track4 path1 path5 path6 path7 path14 path15 path21 path22 path32 path33 path34 path35 path36" text-anchor="middle" x="100" y="25">B.S. Mechanical Eng.</text>
+            <text class="jobtitle track1 track2 track3 path2 path5 path6 path7 path14 path15 path21 path22" text-anchor="middle" x="150" y="105">Energy Engineer</text>
+            <text class="jobtitle track1 path3 path5 path6 path7" text-anchor="middle" x="230" y="60">Federal Energy Engineer</text>
+            <text class="jobtitle track1 path1 path4 path5 path6 path7" text-anchor="middle" x="345" y="120">Sustainability Specialist</text>
+            <text class="jobtitle track1 path1 path2 path3 path4 path5 path8 path9 path10 path11 path12 path13 path16 path18 path23 path25 path26" text-anchor="middle" x="700" y="40">Chief Sustainability Officer</text>
+            <text class="jobtitle track1 path1 path2 path3 path4 path6 path7 path8 path9 path10 path11 path12 path13 path16 path18 path23 path25 path26" text-anchor="middle" x="760" y="95">Regional Energy Manager</text>
+            <text class="jobtitle track1 track2 path1 path2 path3 path4 path7 path8 path9 path10 path11 path12 path13 path16 path18 path23 path25 path26" text-anchor="middle" x="890" y="125">CEO/Owner of Energy Firm</text>
+          </g>
+          <g id="swimlane2-text">
+            <text class="jobtitle track1 track2 track3 track4 path5 path6 path7 path8 path14 path15 path16 path21 path22 path32 path33 path34 path35 path36" text-anchor="middle" x="90" y="300">HVAC Technician</text>
+            <text class="jobtitle track1 track2 track4 path5 path6 path7 path9 path14 path15 path32 path33 path34 path35 path36" text-anchor="middle" x="95" y="225">Air Force HVACR</text>
+            <text class="jobtitle track1 track2 track3 track4 path5 path6 path7 path10 path14 path15 path16 path21 path22 path32 path33 path34 path35 path36" text-anchor="middle" x="185" y="245">B.S. HVAC Tech</text>
+            <text class="jobtitle track1 track2 path5 path6 path7 path11 path14 path15" text-anchor="middle" x="220" y="200">Construction and Building Inspectors</text>
+            <text class="jobtitle track1 track2 path5 path6 path7 path12 path14 path15" text-anchor="middle" x="270" y="280">Residential Energy Assessor</text>
+            <text class="jobtitle track1 track2 path1 path5 path6 path7 path8 path9 path10 path11 path12 path13 path14 path15 path16 path18 path23 path25 path26" text-anchor="middle" x="370" y="245">Energy Consultant</text>
+            <text class="jobtitle track2 path1 path2 path8 path9 path10 path11 path12 path13 path14 path16 path18 path23 path25 path26" text-anchor="middle" x="770" y="280">Senior Energy Auditor</text>
+            <text class="jobtitle track2 path1 path2 path8 path9 path10 path11 path12 path13 path15 path16 path18 path23 path25 path26" text-anchor="middle" x="885" y="225">Senior Technical Specialist</text>
+          </g>
+           <g id="swimlane3-text">
+            <text class="jobtitle track1 track2 track3 track4 path5 path6 path7 path14 path15 path16 path21 path22 path32 path33 path34 path35 path36" text-anchor="middle" x="80" y="425">A.S. HVAC Tech</text>
+            <text class="jobtitle track3 path17 path21 path22" text-anchor="middle" x="155" y="475">Sheet Metal Worker</text>
+            <text class="jobtitle track1 track2 track3 path5 path6 path7 path14 path15 path18 path21 path22 path25" text-anchor="middle" x="175" y="375">B.S. Building Automation Tech</text>
+            <text class="jobtitle track3 path1 path8 path10 path16 path17 path18 path19 path21 path22 path25" text-anchor="middle" x="325" y="460">Commissioning Technician</text>
+            <text class="jobtitle track3 path10 path16 path18 path20 path21 path22 path25" text-anchor="middle" x="360" y="425">Controls Technician</text>
+            <text class="jobtitle track3 path1 path2 path8 path10 path17 path18 path19 path20 path21 path25" text-anchor="middle" x="785" y="395">Senior Commissioning Manager</text>
+            <text class="jobtitle track3 path1 path2 path8 path10 path17 path18 path19 path20 path22 path25" text-anchor="middle" x="890" y="475">President of Commissioning Firm</text>
+          </g>
+          <g id="swimlane4-text">
+            <text class="jobtitle track1 track2 track4 path5 path6 path7 path14 path15 path23 path32 path33 path34 path35 path36" text-anchor="middle" x="70" y="540">Electrician</text>
+            <text class="jobtitle track4 path24 path32 path33 path34 path35 path36" text-anchor="middle" x="110" y="600">A.S. Building Maint. Tech</text>
+            <text class="jobtitle track1 track2 track3 track4 path5 path6 path7 path14 path15 path21 path22 path25 path32 path33 path34 path35 path36" text-anchor="middle" x="165" y="645">A.S. Electro. Mech. Maint. Tech</text>
+            <text class="jobtitle track1 track2 track4 path5 path6 path7 path14 path15 path26 path32 path33 path34 path35 path36" text-anchor="middle" x="245" y="565">Navy UT Utilitiesman</text>
+            <text class="jobtitle track4 path16 path24 path25 path27 path32 path33 path34 path35 path36" text-anchor="middle" x="315" y="620">Maintenance Technician</text>
+            <text class="jobtitle track4 path28 path32 path33 path34 path35 path36" text-anchor="middle" x="350" y="535">Federal Facility Specialist</text>
+            <text class="jobtitle track4 path1 path28 path29 path32 path33 path34 path35 path36" text-anchor="middle" x="375" y="620">Federal Facility Manager</text>
+            <text class="jobtitle track4 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path30 path32 path33 path34 path35 path36" text-anchor="middle" x="395" y="550">Building Engineer</text>
+            <text class="jobtitle track4 path16 path31 path32 path33 path34 path35 path36" text-anchor="middle" x="410" y="635">Superintendent</text>
+            <text class="jobtitle track4 path1 path2 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path32" text-anchor="middle" x="680" y="545">Senior Manager of Operations</text>
+            <text class="jobtitle track4 path1 path2 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path33" text-anchor="middle" x="710" y="635">Chief Building Engineer</text>
+            <text class="jobtitle track4 path1 path2 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path34" text-anchor="middle" x="850" y="600">Chief Engineer (Federal O&M Contractor)</text>
+            <text class="jobtitle track4 path1 path2 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path35" text-anchor="middle" x="970" y="535">Regional Facility Manager</text>
+            <text class="jobtitle track4 path1 path2 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path36" text-anchor="middle" x="965" y="650">Director of Maintenance</text>
+          </g>
+
+
+          <!-- images -->
+
+          <!-- Draw images and circles -->
+          <g id="cert-icons" transform="translate(472,15)">
+            <g id="cert1-icon" class="image not2 not3 not4" transform="translate(0,0)">
+              <rect x="0" y="0" width="121" height="134" rx="10" ry="10" fill="#6eaf45" stroke="#666" stroke-width="5" />
+            </g>
+            <g id="cert2-icon" class="image not1 not3 not4" transform="translate(0,181)">
+              <rect x="0" y="0" width="121" height="134" rx="10" ry="10" fill="#f7931f" stroke="#666" stroke-width="5" />
+            </g>
+            <g id="cert3-icon" class="image not1 not2 not4" transform="translate(0,356)">
+              <rect x="0" y="0" width="121" height="134" rx="10" ry="10" fill="#00919f" stroke="#666" stroke-width="5" />
+            </g>
+            <g id="cert4-icon" class="image not1 not2 not3" transform="translate(0,531)">
+              <rect x="0" y="0" width="121" height="134" rx="10" ry="10" fill="#ac4c6a" stroke="#666" stroke-width="5" />
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div id="sidebarText" style="float: left; width: 200px; height: 700px; background: #fff;">
+          <!-- <a href="http://www.youtube.com/watch?v=LzGsm8774v4" rel="lightvideo">Video: Intro to the Career Map</a><br/>
+          <a href="https://www.youtube.com/watch?v=DO87DvGxN00" rel="lightvideo">Video: Using the Career Map</a><br/><br/></div>
+          This Career Map tool highlights emerging professional-level standards that are part of the Department of Energy’s Better Buildings Workforce Guidelines (BBWG).  The map articulates clear pathways for advancement for incumbent workers as well as the identification of strategic entry points for veterans in building trades professionals, graduates, and other job seekers.
+          <br/><br/>
+          The entry points on the left are strategic entry points identified as jobs that are good precursors or transition jobs to the four main BBWG jobs.  The right side of the map shows specializations to strive for and what career advancements are possible.  Hover over points to see the pathways and click on a point to see basic job data.
+          <br/><br/>
+          At the bottom of the map are four focus areas which act as filters.  Click on a filter to see all of the job entry points associated with that field along with the pathway for those jobs. -->
+
+        <p id="job-summary"></p>
+        <p id="job-titles"></p>
+        <p id="job-training"></p>
+        <p id="degree-overview"></p>
+        <p id="degree-occupations"></p>
+        <p id="job-link"></p>
+      </div>
+
+    <script type="text/javascript">
+      // Get a list of all job elements
+      const jobElements = document.querySelectorAll("[id^='job']");
+
+      // Initialize variables to keep track of the active elements
+      let activeJob = null;
+      let activePathElements = [];
+
+      jobElements.forEach(job => {
+        const jobId = job.id;
+        const pathId = `path${jobId.substring(3)}`; // Construct corresponding path id
+        const pathElements = document.querySelectorAll(`.${pathId}`);
+
+        // Define onMouseOver function
+        function onMouseOver() {
+          if (!activePathElements.includes(pathId)) {
+            pathElements.forEach(path => {
+              path.style.opacity = "0.6";
+            });
+          }
+        }
+
+        // Define onMouseOut function
+        function onMouseOut() {
+          if (!activePathElements.includes(pathId)) {
+            pathElements.forEach(path => {
+              path.style.opacity = "0";
+            });
+          }
+        }
+
+        // Add event listeners using the defined functions
+        job.addEventListener("mouseover", onMouseOver);
+        job.addEventListener("mouseout", onMouseOut);
+
+        job.addEventListener("click", () => {
+          // Clear the previous active path elements
+          activePathElements.forEach(activePathId => {
+            const activePathElementsToClear = document.querySelectorAll(`.${activePathId}`);
+            activePathElementsToClear.forEach(path => {
+              path.style.opacity = "0";
+            });
+          });
+
+          // Set the new active path elements
+          pathElements.forEach(path => {
+            path.style.opacity = "1";
+          });
+
+          // Update the active elements
+          activeJob = job;
+          activePathElements = [pathId];
+        });
+      });
+
+
+     const jobsArray = [
+          {
+            "Job ID": "job1",
+            "Job Summary": "",
+            "Common Titles": "",
+            "Education and Training": "",
+            "Degree Overview": "Bachelors degree in Mechanical Engineering focuses on the application of principles of engineering, physics, and building science for the design, analysis, and maintenance of mechanical systems.  Mechanical engineers apply the principles of force, motion, energy, and thermal fluids to design tools and processes. Note: Degree programs may vary",
+            "Potential Occupations": [
+              "Senior Level Building Engineer",
+              "Heating, Ventilating, and Air Conditioning (HVAC) Engineer",
+              "Materials Engineer",
+              "Maintenance Engineer",
+              "Reliability and Testing Engineer", 
+              "Robotics Engineer",
+              "Energy Consultant",  
+              "Commissioning Technician",
+              "Energy Manager"
+              ],
+            "Link": "/b-s-mechanical-eng/"
+          },
+          {
+            "Job ID": "job2",
+            "Job Summary": "Energy Engineer designs, develops, or evaluates energy-related projects or programs to reduce energy costs or improve energy efficiency during the designing, building, or remodeling stages of construction.",
+            "Common Titles": "Energy Project Manager, Systems Engineer, Energy Project Engineer",
+            "Education and Training": "Bachelor's Degree in Engineering, preferably mechanical or electrical engineering<br><br>Building Analyst Certified Professional certification or Certified Energy Manager may be required.",
+            "Degree Overview": "",
+            "Potential Occupations": "",
+            "Link": "/energy-engineer/"
+          },
+          {
+            "Job ID": "job3",
+            "Job Summary": "A Federal Energy Engineer develops, evaluates, and implements energy-related projects to reduce energy costs or improve energy efficiency at the facility level.",
+            "Common Titles": "Mechanical Engineer, Electrical Engineer, Energy Engineer",
+            "Education and Training": "Bachelor's Degree in Engineering preferred and may be required, preferably mechanical or electrical engineering<br><br>Certified Energy Manager (CEM) or equivalent preferred and may be required.",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/federal-energy-engineer/"
+          },
+          {
+            "Job ID": "job4",
+            "Job Summary": "A Sustainability Specialist addresses organizational sustainability issues, such as energy and water efficiency, waste stream management, and sustainable building practices.",
+            "Common Titles": "Sustainability Coordinator, Sustainability Advisor, Sustainability Consultant",
+            "Education and Training": "Bachelor's Degree in Environmental Science, Energy Engineering, Sustainable Buildings Science Technology, Sustainable Business, or equivalent<br><br>Certifications may be required such as the Sustainability Facility Professional (SFP).",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/sustainability-specialist/"
+          },
+          {
+            "Job ID": "job5",
+            "Job Summary": "The Chief Sustainability Officer (CSO) communicates and coordinates with management, shareholders, customers, and employees to address sustainability issues. The CSO will enact or oversee a corporate sustainability strategy.",
+            "Common Titles": "Director of Sustainability, Corporate Sustainability Officer, Director of Environment, Energy, & Safety",
+            "Education and Training": "Bachelor's Degree in Environmental Science, Energy Engineering, Sustainable Buildings Science Technology, Sustainable Business, or equivalent.  Some positions may require a master's degree in a related field.<br><br>Certifications may be required such as the SFP. Certified Energy Manager or Building Analyst Certified Professional certification may be preferred.",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/chief-sustainability-officer/"
+          },
+          {
+            "Job ID": "job6",
+            "Job Summary": "A Federal Regional Energy Manager writes policies, develops energy plans, and monitors energy utilization and compliance with federal mandates across their region or program.",
+            "Common Titles": "A regional/program level energy position is common across Federal agencies. However, titles and responsibilities vary across the agencies.<br><br>Energy Team Lead, Network/VISN Energy Manager, Program Energy Manager",
+            "Education and Training": "",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/regional-energy-manager/"
+          },
+          {
+            "Job ID": "job7",
+            "Job Summary": "The CEO or owner of an Energy Firm plans, directs, or coordinates operational activities at the highest level of management and provides an overall direction of the organization with the help or within guidelines set up by a board of directors or similar governing body.",
+            "Common Titles": "Chief Operating Officer (COO), Executive Director, Executive Vice President (EVP)",
+            "Education and Training": "Most of these occupations require graduate school. For example, they may require a master's degree, and some require a Ph.D., M.D., or J.D. (law degree).<br><br>Certified Energy Manager or Building Analyst Certified Professional certification may be preferred.",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/ceo-owner-of-energy-firm/"
+          },
+          {
+            "Job ID": "job8",
+            "Job Summary": "An HVAC Technician is responsible for installing, maintaining and repairing heating, ventilation, air-conditioning and refrigeration systems. In addition, HVAC technicians diagnose and fix problems that they find in HVAC systems.",
+            "Common Titles": "Heating and Air Conditioning Mechanic and Installer, HVAC Service Tech, Service Technician",
+            "Education and Training": "",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/hvac-technician/"
+          },
+          {
+            "Job ID": "job9",
+            "Job Summary": "Air Force HVAC/R (3E1X1) specialty position installs, operates, maintains, and repairs heating, ventilation, air conditioning and refrigeration (HVAC/R) systems, and manages HVAC/R functions and activities.",
+            "Common Titles": "",
+            "Education and Training": "",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/air-force-hvacr/"
+          },
+          {
+            "Job ID": "job10",
+            "Job Summary": "",
+            "Common Titles": "",
+            "Education and Training": "",
+            "Degree Overview": "Bachelors degree in Heating, Ventilation, Air Conditioning and Refrigeration (HVACR) Engineering Technology curriculum is a two-year, upper-division sequence leading to a bachelor of science degree in HVAC. Instruction is aimed at developing expertise in HVAC system and HVAC controls design, HVAC retrofitting, HVAC testing and adjusting, system balancing and building HVAC operations with microcomputer controls.Note: Degree programs may vary",
+            "Potential Occupations": [
+              "Maintenance Technician",
+              "Facilities Engineer",
+              "Heating, Ventilating, and Air Conditioning (HVAC) Engineer",
+              "Building Engineer",
+              "Commissioning Technician",
+              "Energy Consultant",
+              "Energy Manager"
+              ],
+            "Link": "/b-s-hvac-tech/"
+          },
+          {
+            "Job ID": "job11",
+            "Job Summary": "Construction and Building Inspectors ensure that construction meets local and national building codes and ordinances, zoning regulations, and contract specifications.",
+            "Common Titles": "Building Inspector, Building Code Administrator, Building Official",
+            "Education and Training": "",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/construction-and-building-inspector/"
+          },
+          {
+            "Job ID": "job12",
+            "Job Summary": "An Energy Assessor is responsible for evaluating energy usage, benchmarking energy consumption, and determining programs/strategies to improve energy performance.",
+            "Common Titles": "Energy Consultant, Home Performance Consultant",
+            "Education and Training": "",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/residential-energy-assessor/"
+          },
+          {
+            "Job ID": "job13",
+            "Job Summary": "An Energy Consultant assesses facility systems, observes site conditions, analyzes and evaluates equipment and energy usage, and recommends strategies to help clients meet established goals.  The work typically includes energy benchmarking, energy analysis, and development of energy conservation measures.",
+            "Common Titles": "Energy Engineer, Energy Auditor, Energy Rater",
+            "Education and Training": "",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/energy-consultant/"
+          },
+          {
+            "Job ID": "job14",
+            "Job Summary": "A Senior level energy auditor is an energy solutions professional who assesses facility systems, evaluates equipment and energy usage, and recommends strategies to reduce energy, water, and associated costs.",
+            "Common Titles": "Mechanical Engineer, Project Manager, Senior Energy Engineer",
+            "Education and Training": "",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/senior-energy-auditor/"
+          },
+          {
+            "Job ID": "job15",
+            "Job Summary": "The Senior Technical Specialist provides expertise in energy efficiency, pollution prevention, and environmental compliance.",
+            "Common Titles": "",
+            "Education and Training": "",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/senior-technical-specialist/"
+          },
+          {
+            "Job ID": "job16",
+            "Job Summary": "",
+            "Common Titles": "",
+            "Education and Training": "",
+            "Degree Overview": "An associate degree program in HVAC (heating, ventilation and air conditioning) technology trains students to help design, maintain and repair both private and commercial heating and air conditioning systems. Such programs are designed to offer the technical training necessary to help students prepare for entry-level positions as heating or air conditioning system technicians.<br><br><em>Note: Degree programs may vary<em>",
+            "Potential Occupations": [
+              "HVAC Technician",
+              "HVAC Test Technician",
+              "Service Technician",
+              "HVAC Mechanic",
+              "Building Systems Technician",
+              "Maintenance Technician",
+              "Commissioning Technician",
+              "Superintendent"
+              ],
+            "Link": "/a-s-hvac-tech/"
+          },
+          {
+            "Job ID": "job17",
+            "Job Summary": "A Sheet Metal Worker fabricates, assembles, installs, and repairs sheet metal products and equipment, such as ducts, control boxes, drainpipes, and furnace casings.",
+            "Common Titles": "Sheet Metal Mechanic, Sheet Metal Technician, Sheet Metal Installer",
+            "Education and Training": "High School Diploma or equivalent, Associates degree in mechanical systems or equivalent education, or relevant apprenticeship programs Certificates may be required. Such as Precision Sheet Metal Operator Certification (Fabricators & Manufacturers Association, International) and Air System Cleaning Specialist (National Air Duct Cleaners Association)",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/sheet-metal-worker/"
+          },
+          {
+            "Job ID": "job18",
+            "Job Summary": "",
+            "Common Titles": "",
+            "Education and Training": "",
+            "Degree Overview": "A Bachelors Degree in Building Automation Technology prepares students to work in the field of building automation, heating, ventilating, air conditioning and refrigeration control (HVACR) and building energy management. The major emphasizes application control system design, programming and documentation, building control networks, building commissioning, the operation and control of chillers and boilers, and related mechanical and electrical equipment.<br><br><em>Note: Degree programs may vary</em>",
+            "Potential Occupations": [
+              "Automation Engineer",
+              "Automation Specialist",
+              "Controls Engineer"
+              ],
+            "Link": "/b-s-building-automation-tech/"
+          },
+          {
+            "Job ID": "job19",
+            "Job Summary": "A Commissioning Technician works under general direction of more experienced personnel who can review MEP designs and specifications, prepare commissioning plans, schedules, and commissioning documentation.",
+            "Common Titles": "Commissioning Specialist, Mechanical Commissioning Technician, Engineering Technician",
+            "Education and Training": "Associates Degree in electronics, mechanical systems, computer technology, HVAC. Some positions may require a Bachelor's Degree in Engineering, preferably in a related engineering technology such as electrical or mechanical, and an understanding of the basics of electrical and HVAC systems, as well as controls. Licensing and Certificates may be required.",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/commissioning-technician/"
+          },
+          {
+            "Job ID": "job20",
+            "Job Summary": "A Controls Technician is responsible for the installation, start-up, troubleshooting, commissioning and servicing of building automation systems.",
+            "Common Titles": "Controls Specialist, Building Automation Specialist, Automation Controls Specialist, Control Technician",
+            "Education and Training": "High School Diploma or equivalent, Associates degree in electronics, mechanical systems, computer technology, air conditioning or similar field equivalent education. Certificates may be required, such as ISA Certified Control Systems Technician",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/controls-technician/"
+          },
+          {
+            "Job ID": "job21",
+            "Job Summary": "A Senior Commissioning Manager oversees multiple commissioning projects, and serves as a senior technical reviewer of project documentation and staff.",
+            "Common Titles": "Commissioning Engineer, Senior Commissioning Engineer, Senior Commissioning Agent",
+            "Education and Training": "Bachelor's Degree in Engineering, preferably in electrical or mechanical engineering with a strong understanding of buildings, MEP systems, and building controls.",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/senior-commissioning-manager/"
+          },
+          {
+            "Job ID": "job22",
+            "Job Summary": "The CEO or owner of an Commissioning Firm plans, directs, or coordinates operational activities at the highest level of management and provides an  overall direction of the organization with the help or within guidelines set up by a board of directors or similar governing body.",
+            "Common Titles": "Chief Executive Officer (CEO), Chief Operating Officer (COO), Executive Director",
+            "Education and Training": "Most of these occupations require graduate school. For example, they may require a master's degree, and some require a Ph.D., M.D., or J.D. (law degree).",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/president-of-commissioning-firm/"
+          },
+          {
+            "Job ID": "job23",
+            "Job Summary": "An Electrician installs, maintains, and repairs electrical wiring, equipment, and fixtures. Ensures that work is in accordance with relevant codes. May install or service street lights, intercom systems, or electrical control systems.",
+            "Common Titles": "Control Electrician; Industrial Electrician; Inside Wireman; Journeyman Electrician; Journeyman Wireman; Maintenance Electrician; Qualified Craft Worker",
+            "Education and Training": "",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/electrician/"
+          },
+          {
+            "Job ID": "job24",
+            "Job Summary": "",
+            "Common Titles": "",
+            "Education and Training": "",
+            "Degree Overview": "Associate-level program in Building Maintenance Technology prepares students to acquire general maintenance jobs in multiple trades by providing instruction in HVAC principles, electrical systems and general maintenance. Completion of a program in this field can lead to an Associate of Science, Associate of Applied Science or Associate of Occupational Studies, with an emphasis in an area such as building management and maintenance or building maintenance technology.<br><br><em>Note: Degree programs may vary</em>",
+            "Potential Occupations": [
+              "Building maintenance",
+              "Stationary engineer",
+              "Furnace mechanic",
+              "Facility maintenance foreman",
+              "Maintenance Technician"
+              ],
+            "Link": "/a-s-building-maint-tech/"
+          },
+          {
+            "Job ID": "job25",
+            "Job Summary": "",
+            "Common Titles": "",
+            "Education and Training": "",
+            "Degree Overview": "Associate-level program in Electromechanical Maintenance Technology prepares students to develop a wide variety of technical skills in electronics, fluid power, mechanical systems, computers and computer-controlled machines. Programmable logic controllers, robotics, motors and drives, servo hydraulic systems and closed loop positioning are also possible areas to be studied.",
+            "Potential Occupations": [
+              "Electromechanical Technician ",
+              "Industrial Automation Technician",
+              "Electronic Instrument Technician",
+              "Maintenance Technician",
+              "Mechanical Technician",
+              "Engineering Technician",
+              "Robotics Technician",
+              "Industrial Maintenance Technician"
+              ],
+            "Link": "/a-s-electro-mech-maint-tech/"
+          },
+          {
+            "Job ID": "job26",
+            "Job Summary": "Navy (Enlisted) Utilitiesmen are involved with plumbing, heating, steam, compressed air, fuel storage, and distribution systems. Their work also includes water treatment and distribution systems, air conditioning and refrigeration equipment, and sewage collecting and disposal facilities at Navy shore installations around the world.",
+            "Common Titles": "",
+            "Education and Training": "Related military training in system maintenance and repair",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/navy-ut-utilitiesman/"
+          },
+          {
+            "Job ID": "job27",
+            "Job Summary": "The Maintenance Technician is responsible for troubleshooting, repairing, and performing preventive maintenance on mechanical, electrical, HVAC, plumbing systems and physical structural elements of a building.",
+            "Common Titles": "HVAC Technician, HVAC Service Technician, HVAC Installer, HVAC Mechanic",
+            "Education and Training": "Training in vocational schools, related on-the-job experience, apprenticeship programs or an associate's degree Licensing and Certificates may be required.",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/maintenance-technician/"
+          },
+          {
+            "Job ID": "job28",
+            "Job Summary": "Serves as a technical specialist for operations and maintenance equipment and personnel/contractors.",
+            "Common Titles": "Building Management Specialist, Property Management Specialist, Assistant Building Manager, Staff Engineer, Supervisory Engineer",
+            "Education and Training": "Training in building maintenance, related on-the-job experience, or a related degree may be required.",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/federal-facility-specialist/"
+          },
+          {
+            "Job ID": "job29",
+            "Job Summary": "Provides occupants with safe, secure, clean, and sustainable facilities and serves as the primary customer agency advocate.",
+            "Common Titles": "Building Manager, Property Manager, Assistant Chief Engineer, Building Manager",
+            "Education and Training": "Training in building management principles, operations and maintenance practices, related on-the-job experience, or a related degree may be required.",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/federal-facility-manager/"
+          },
+          {
+            "Job ID": "job30",
+            "Job Summary": "The Building Engineer's main job requirements are monitoring building system operations and performance utilizing several trade skills and knowledge of mechanical, energy management systems, electrical systems, lighting, water and building envelope including doors, windows, insulation, roofing, etc.",
+            "Common Titles": "Building Operator, Lead Building Operating Engineer, Building Engineer II",
+            "Education and Training": "Training in vocational schools, related on-the-job experience, apprenticeship programs or an associate's degree Licensing and Certificates may be required.<br><br>Certifications may be required including the Facility Management Professional (FMP).",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/building-engineer/"
+          },
+          {
+            "Job ID": "job31",
+            "Job Summary": "A Superintendent is responsible for the safe and economical maintenance of the building including: the grounds, outside perimeter, and building's mechanical equipment.",
+            "Common Titles": "Buildings and Grounds Supervisor, Maintenance Supervisor",
+            "Education and Training": "High School Diploma or equivalent, Associates degree in mechanical systems or equivalent education, or Relevant Apprenticeship Programs",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/superintendent/"
+          },
+          {
+            "Job ID": "job32",
+            "Job Summary": "The Senior Manager of Operations plans, directs, or coordinates the operations of public or private sector organizations.",
+            "Common Titles": "Operations Manager, Director of Operations, Facilities Manager",
+            "Education and Training": "Training in vocational schools, related on-the-job experience, apprenticeship programs or an associate's degree",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/senior-manager-of-operations/"
+          },
+          {
+            "Job ID": "job33",
+            "Job Summary": "The Chief Building Engineer oversees the maintenance operations and overall building performance.",
+            "Common Titles": "",
+            "Education and Training": "",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/chief-building-engineer/"
+          },
+          {
+            "Job ID": "job34",
+            "Job Summary": "The Chief Engineer for an O&M Contractor works with federal agencies to maintain a building or a set of buildings.  The Chief Engineer oversees the maintenance operations and overall building performance.",
+            "Common Titles": "Senior Engineer, Senior Chief Engineer",
+            "Education and Training": "Training and experience in building management principles, operations and maintenance practices, facility management, asset management, and leadership roles or a related degree may be required.",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/chief-engineer-federal-om-contractor/"
+          },
+          {
+            "Job ID": "job35",
+            "Job Summary": "A Federal Regional Facility Manager is responsible for facility planning, operations, and maintenance across multiple buildings or large, complex, buildings.",
+            "Common Titles": "Field Office Manager, Zone Manager, Chief Engineer",
+            "Education and Training": "Training and experience in building management principles, operations and maintenance practices, facility management, asset management, and leadership roles or a related degree may be required.",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/regional-facility-manager/"
+          },
+          {
+            "Job ID": "job36",
+            "Job Summary": "The Director of Maintenance is responsible for the day to day coordination and oversight of all aspects of the operations of a facility.",
+            "Common Titles": "Operations Manager, Director of Operations, Facilities Manager",
+            "Education and Training": "Training in vocational schools, related on-the-job experience, apprenticeship programs or an associate's degree",
+            "Degree Overview": "",
+            "Potential Occupations": null,
+            "Link": "/director-of-maintenance/"
+          }
+          ];
+
+    </script>
+
+  </body>
+</html>

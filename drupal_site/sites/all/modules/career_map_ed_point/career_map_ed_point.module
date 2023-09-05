@@ -1,0 +1,77 @@
+<?php
+include_once 'career_map_ed_point.features.inc';
+
+/**
+ * @file
+ * This module will add the "Ed Point" content type which is nearly the same as Job Point, but slightly different. 
+ */
+/**
+ * Implements hook_help().
+ *
+ * Displays help and module information.
+ *
+ * @param path 
+ *   Which path of the site we're using to display help
+ * @param arg 
+ *   Array that holds the current path as returned from arg() function
+ */
+function career_map_ed_point_help($path, $arg){
+    switch ($path) {
+    case "admin/help#career_map_ed_point":
+      return '<p>' . t("Adds a new content type & functionality, 'Ed Point'") . '</p>';
+      break;
+  }
+}
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function career_map_ed_point_theme_registry_alter(&$theme_registry) {
+    // Defined path to the current module.
+    $module_path = drupal_get_path('module', 'career_map_ed_point');
+    // Find all .tpl.php files in this module's folder recursively.
+    $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+    // Iterate through all found template file objects.
+    foreach ($template_file_objects as $key => $template_file_object) {
+        // If the template has not already been overridden by a theme.
+        if (!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+            // Alter the theme path and template elements.
+            $theme_registry[$key]['theme path'] = $module_path;
+            $theme_registry[$key] = array_merge($theme_registry[$key], $template_file_object);
+            $theme_registry[$key]['type'] = 'module';
+        }
+    }
+}
+
+function career_map_ed_point(){
+    $nodes = array();
+    $query = new EntityFieldQuery();
+    $entities = $query->entityCondition('entity_type', 'node')
+                            ->entityCondition('bundle', 'ed_point')
+                            ->propertyCondition('status', 1)
+                            ->execute();
+    if(array_key_exists('node',$entities)){
+        $nodes = entity_load('node', array_keys($entities['node']));
+        foreach($nodes as &$node){
+            $alias = drupal_lookup_path('alias', "node/".$node->nid);
+            $node->alias = $alias;
+        }
+    }
+    
+    return $nodes;
+}
+//function career_map_ed_point_add_map_point_type($additionalPoints){
+//    $tmpPoints = career_map_ed_point();
+//    return array_merge($additionalPoints,$tmpPoints);
+//}
+function career_map_ed_point_install(){
+    
+    
+}
+function career_map_ed_point_mapping_tool_add_js($settingsKey)
+{
+//    $filepath = variable_get('file_public_path', conf_path() . '/files');
+    drupal_add_js(array($settingsKey => array('ed_points' => career_map_ed_point())), 'setting');
+//    drupal_add_js(array('filePath' => $filepath), 'setting');
+    drupal_add_js(drupal_get_path('module', 'career_map_ed_point').'/edPointFunctions.js');
+    drupal_add_js('jQuery(document).ready(function (){ initEdPoints(); });', 'inline');
+}

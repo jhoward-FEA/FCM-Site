@@ -1,0 +1,135 @@
+<?php
+/**
+ * @file
+ * This module will generate a page which will have the canvas element and 
+ * include all the JS which we need for the tool to run.
+ */
+
+//drupal_add_js('http://code.createjs.com/easeljs-0.8.0.min.js', 'external');
+
+/**
+ * Implements hook_help().
+ *
+ * Displays help and module information.
+ *
+ * @param path 
+ *   Which path of the site we're using to display help
+ * @param arg 
+ *   Array that holds the current path as returned from arg() function
+ */
+function career_map_help($path, $arg){
+    switch ($path) {
+    case "admin/help#mareer_map":
+      return '<p>' . t("Generates a page with a canvas element") . '</p>';
+      break;
+  }
+}
+/**
+ * Implements hook_menu()
+ */
+function career_map_menu(){
+     $items['career_map/tool'] = array(
+    'title' => 'Career Mapping Tool',
+    'page callback' => 'career_map_tool',
+    'access arguments' => array('access content'),
+    );
+ 
+return $items;
+}
+//Generates the page content.
+function career_map_tool(){
+    $nodes = career_map_jobs();
+//    $edPoints = career_map_ed_points();
+    $pathNodes = career_map_paths();
+    $certs = career_map_certifications();
+    
+    $additionalPoints = array();
+    if (sizeof(module_implements('add_map_point_type')) > 0) {
+        // Call all modules that implement the hook, and let them make changes to $variables.
+        $additionalPoints = module_invoke_all('add_map_point_type', $additionalPoints);
+    }
+    
+    $jobs = array_merge($nodes,$additionalPoints);
+//    $jobs = $nodes;
+    $settingsKey = 'career_map';
+    
+    drupal_add_js('https://code.createjs.com/easeljs-0.8.0.min.js', 'external');
+    drupal_add_js('https://code.jquery.com/ui/1.11.4/jquery-ui.js', 'external');
+    drupal_add_js(drupal_get_path('module', 'career_map').'/canvas_config.js');
+    drupal_add_js(drupal_get_path('module', 'career_map').'/careerFunctions.js');
+
+    drupal_add_js(array($settingsKey => array('job_points' => $jobs)), 'setting');
+    drupal_add_js(array($settingsKey => array('job_paths' => $pathNodes)), 'setting');
+    drupal_add_js(array($settingsKey => array('job_certs' => $certs)), 'setting');
+    drupal_add_js('jQuery(document).ready(function (){ init(); });', 'inline');
+    
+    if (sizeof(module_implements('mapping_tool_add_js')) > 0) {
+        module_invoke_all('mapping_tool_add_js',$settingsKey);
+    }
+    return ' ';
+}
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function career_map_theme_registry_alter(&$theme_registry) {
+    // Defined path to the current module.
+    $module_path = drupal_get_path('module', 'career_map');
+    // Find all .tpl.php files in this module's folder recursively.
+    $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+    // Iterate through all found template file objects.
+    foreach ($template_file_objects as $key => $template_file_object) {
+        // If the template has not already been overridden by a theme.
+        if (!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+            // Alter the theme path and template elements.
+            $theme_registry[$key]['theme path'] = $module_path;
+            $theme_registry[$key] = array_merge($theme_registry[$key], $template_file_object);
+            $theme_registry[$key]['type'] = 'module';
+        }
+    }
+}
+/**
+ * retrieves all published job points
+ */
+function career_map_jobs()
+{
+    $query = new EntityFieldQuery();
+    $entities = $query->entityCondition('entity_type', 'node')
+                            ->entityCondition('bundle', 'job_point')
+                            ->propertyCondition('status', 1)
+                            ->execute();
+    if(array_key_exists('node',$entities)){
+        $nodes = entity_load('node', array_keys($entities['node']));
+        foreach($nodes as &$node){
+            $alias = drupal_lookup_path('alias', "node/".$node->nid);
+            $node->alias = $alias;
+        }
+    }
+    return $nodes;
+}
+function career_map_paths()
+{
+    $query = new EntityFieldQuery();
+    $entities = $query->entityCondition('entity_type', 'node')
+                            ->entityCondition('bundle', 'career_path')
+                            ->propertyCondition('status', 1)
+                            ->execute();
+    $pathNodes = entity_load('node', array_keys($entities['node']));
+    
+    return $pathNodes;
+}
+function career_map_certifications()
+{
+    $query = new EntityFieldQuery();
+    $entities = $query->entityCondition('entity_type', 'node')
+                            ->entityCondition('bundle', 'certification')
+                            ->propertyCondition('status', 1)
+                            ->execute();
+    if(array_key_exists('node',$entities)){
+        $pathNodes = entity_load('node', array_keys($entities['node']));
+        foreach($pathNodes as &$node){
+            $alias = drupal_lookup_path('alias', "node/".$node->nid);
+            $node->alias = $alias;
+        }
+    }
+    return $pathNodes;
+}

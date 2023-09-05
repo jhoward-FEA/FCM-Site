@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Career Map Content Types feature.
+ */
+
+include_once 'career_map_content_types.features.inc';

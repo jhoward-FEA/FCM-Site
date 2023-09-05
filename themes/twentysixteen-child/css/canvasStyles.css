@@ -1,0 +1,187 @@
+#content{position:relative;}
+#careerMap{border:1px solid;float:left;width:775px;height:500px;}
+#sidebarContainer{margin-left:2px;border:1px solid;float:left;width:200px;height:500px;font-weight:bold;overflow:visible;}
+.one-sidebar #content.career-content{width:auto;}
+#sidebarTitle{display:block;height:45px;width:340px;right:5px;text-align:center;line-height:45px;font-weight:bold;font-size:1.2em;}
+#sidebarBanner{}
+#swimlaneDesc{float:left;position:relative;width:120px;height:500px;border:1px solid;margin-right:2px;}
+#sidebarText{font-size:10px;font-weight:normal;width:96%;margin-left:2%;margin-right:2%;height:485px;margin-top: 55px;}
+#sidebarText strong{font-weight:bold;font-size:1.1em;}
+.titlePosition{position:absolute;top:25px;right:0px;}
+#moreInfo{display:none;}
+#infoBanner{}
+#infoBannerText{display:block;top:476px;right:90px;color:#000;text-decoration:none;font-weight:bold;}
+a #infoBannerText{color:#000;text-decoration:none;}
+.footerPosition{position:absolute;top:450px;right:14px;}
+#accordion {
+    width:100%;
+    font-size:12px;
+    font-weight:normal;
+    margin-top: 5px;
+    display:none;
+}
+
+.ui-accordion{}
+.ui-accordion-header{cursor: pointer;border:none;}
+.ui-accordion-content{
+    border-radius: 0px;
+    background:none;
+    border:none;
+}
+.ui-accordion ul{
+    padding: 0 0 0 20px;
+}
+
+#accordion h3{
+    background-color:transparent;
+    background-repeat: no-repeat;
+    background-size: 200px 50px;
+    height:25px;
+    text-align:left;
+    color:#fff;
+    font-family:Arial;
+    line-height:25px;
+    text-indent:5px;
+    border-radius: 0px;
+    margin:0px;
+    font-size:12px;
+    position:relative;
+    font-weight: normal;
+}
+#keysToSuccess{
+    background-image: url("images/sidebanner-1.png");
+    z-index: 500;
+    background-position: 0px 0px;
+}
+#jobDetail{
+    background-image: url("images/sidebanner-2.png");
+    z-index: 4;
+    background-position: -15px 0px;
+}
+#jobTask{
+    background-image: url("images/sidebanner-3.png");
+    background-position: -30px 0px;
+    z-index: 3;
+}
+#compModel{
+    background-image: url("images/sidebanner-4.png");
+    z-index: 2;
+    background-position: -45px 0px;
+}
+#accordion h3+ div{padding:0px 5px 0px 5px;}
+/*#accordion h3.ui-state-default{margin-top: -23px;}
+#accordion h3.ui-state-active{margin-top: -23px;}*/
+#accordion .ui-accordion-content-active{margin-bottom: 35px;}
+#accordion h3#keysToSuccess.ui-state-default{margin: 0px;}
+#mappingToolWrapper{position:relative;width:1105px}
+#pathDescription{
+    position:absolute;
+    width:350px;
+    /*background-color: rgba(255,255,255,0.65) ;*/
+    background-color: #ffffff;
+    border:1px solid #000;
+    border-radius: 15px;
+    padding:5px;
+    text-align:left;
+    display:none;
+    padding:5px;
+}
+#pathDescription div{   
+    max-height:150px;
+    overflow-y:auto;
+    min-height:25px;
+}
+#closePathDescription{
+    float:right;
+    height:15px;
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 5px;
+    color:#ff0000;
+}
+#presetIcons{
+    width:1105px;
+    text-align:center;
+    white-space: nowrap;
+    line-height: 12px;
+    overflow: hidden;
+    float:left;
+}
+#presetIcons div.filter img{max-width:110px;}
+#presetIcons div.filter{
+    width:130px;
+    height:auto;
+    cursor:pointer;
+    margin: 0px 10px 15px 10px;
+    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
+    text-wrap: normal; 
+    /*float:left;*/
+}
+#energyAudit,#energyMgmt,#buildingComm,#buildingOps{height:115px;position:absolute;font-size:12px;padding:0px 5px 0px 5px;}
+#energyMgmt{top:5px;background-color: rgba(171, 180, 55,.15);}
+#energyAudit{top:130px;background-color: rgba(245, 147, 34,.15);}
+#buildingComm{top:255px;background-color: rgba(0, 146, 160,.15);}
+#buildingOps{top:380px;background-color: rgba(173, 77, 106,.15);}
+
+#mapHeaders{
+    width:100%;
+    float:left;
+    height:24px;
+    /*position:relative;*/
+    font-weight:bold;
+    font-size:12px;
+    line-height:12px;
+/*    position:relative;*/
+    text-align:center;
+}
+#mapHeaders ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+#mapHeaders li{
+    margin: 0;
+    /*list-style: none;*/
+    display: inline;
+    float:left;
+}
+#mapHeaders li:first-child
+{
+    width:150px;
+    text-align:left;
+}
+#mapHeaders li:nth-child(2)
+{
+    width:233px;    
+}
+#mapHeaders li:nth-child(3)
+{
+    width:258px;
+}
+#mapHeaders li:nth-child(4)
+{
+    width:258px;
+}
+#mapReturn {
+    cursor: pointer;
+    font-size: 10px;
+    margin-top: 55px;
+    text-align: center;
+    /*width:100%;*/
+}
+#certLearnMore{
+  clear:left;  
+  cursor: pointer;
+    font-size: 10px;
+    text-align: center;
+    padding:5px;
+}
+.scroll{
+    overflow-y: auto;
+    width:100%;
+    max-height:150px;
+}

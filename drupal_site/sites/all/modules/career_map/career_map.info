@@ -1,0 +1,12 @@
+name = Career Map
+description = This module generates a canvas-based Career Mapping Tool
+core = 7.x
+version = 7.x-1.0
+package = Career Mapping Tool
+stylesheets[all][] = canvasStyles.css
+dependencies[] = field
+dependencies[] = entityreference
+dependencies[] = entityreference_view_widget
+dependencies[] = entity
+dependencies[] = libraries
+dependencies[] = career_map_content_types

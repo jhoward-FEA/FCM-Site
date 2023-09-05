@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Canvas experiment</title>
+    <style>
+      text {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+      text.jobtitle {
+        font-weight: bold;
+      }
+      #cert-icons {
+        display: block;
+      }
+      .cert-icon {
+        display: block;
+      }
+    </style>
+
+    <script type="text/javascript" src="svg.js"></script>
+  </head>
+    <body style="background: #CCC;">
+
+      <div style="padding: 20px 5%; width: 1450px;">
+        
+        <div style="float: left;">
+          <svg width="160" height="700">
+            <rect x="0" y="0" width="160" height="700" fill="#FFFFFF" />
+          </svg>  
+        </div>
+
+        <div style="float: left">      
+        <svg width="1085" height="700">
+          <!-- background stripes -->
+          <rect x="0" y="0" width="1085" height="700" fill="#FFFFFF" />
+          <rect x="0" y="6" width="1085" height="163" fill="#eff0da" />
+          <rect x="0" y="181" width="1085" height="163" fill="#faebda" />
+          <rect x="0" y="356" width="1085" height="163" fill="#d5ebed" />
+          <rect x="0" y="531" width="1085" height="163" fill="#efe1e5" />
+
+      <!-- Building Energy Manager paths & highlights-->
+      <g id="cert1-paths" style="display: none;">
+        <!-- Swimlane 1 -->
+        <g id="swimlane1-paths-1">
+          <line x1="105" y1="40" x2="350" y2="135" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. Mechanical Engineering to Sustainability Specialist-->
+          <line x1="155" y1="120" x2="542" y2="81" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Energy Engineer to Building Energy Manager Certification -->
+          <line x1="350" y1="135" x2="542" y2="81" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Sustainability Specialist to Building Energy Manager Certification -->
+          <line x1="235" y1="75" x2="542" y2="81" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Federal Energy Engineer to Building Energy Manager Certification -->
+          <line x1="543" y1="81" x2="705" y2="55" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Energy Manager Certification to Chief Sustainability Officer -->
+          <line x1="543" y1="81" x2="765" y2="110" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Energy Manager Certification to Regional Energy Manager -->
+          <line x1="543" y1="81" x2="895" y2="140" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Energy Manager Certification to CEO/Owner of Energy Firm -->
+          <line x1="105" y1="40" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. Mechanical Engineering to Energy Consultant -->
+          <line x1="370" y1="260" x2="542" y2="81" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Energy Consultant to Building Energy Manager Certification -->
+
+          <!-- Swimlane 1 Paths node highlights -->
+          <circle cx="105" cy="40" r="15" fill="#666" /><!-- B.S. Mechanical Engineering -->
+          <circle cx="155" cy="120" r="15" fill="#666" /><!-- Energy Engineer -->
+          <circle cx="235" cy="75" r="15" fill="#666" /><!-- Federal Energy Engineer -->
+          <circle cx="350" cy="135" r="15" fill="#666" /><!-- Sustainability Specialist -->
+          <circle cx="705" cy="55" r="15" fill="#666" /><!-- Chief Sustainability Officer -->
+          <circle cx="765" cy="110" r="15" fill="#666" /><!-- Regional Energy Manager -->
+          <circle cx="895" cy="140" r="15" fill="#666" /><!-- CEO/Owner of Energy Firm -->
+        </g>
+
+        <!-- Swimlane 2 -->
+        <g id="swimlane2-paths-1">
+          <line x1="95" y1="315" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- HVAC Technician to Energy Consultant -->
+          <line x1="100" y1="240" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Air Force HVACR to Energy Consultant -->
+          <line x1="180" y1="260" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. HVAC Tech to Energy Consultant -->
+          <line x1="220" y1="215" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Construction and Building Inspectors to Energy Consultant -->
+          <line x1="270" y1="295" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Residential Energy Assessor to Energy Consultant -->
+
+          <!-- Swimlane 2 Paths node highlights -->
+          <circle cx="90" cy="315" r="15" fill="#666" /> <!-- HVAC Technician -->
+          <circle cx="95" cy="240" r="15" fill="#666" /> <!-- Air Force HVACR -->
+          <circle cx="185" cy="260" r="15" fill="#666" /> <!-- B.S. HVAC Tech -->
+          <circle cx="220" cy="215" r="15" fill="#666" /> <!-- Construction and Building Inspectors -->
+          <circle cx="270" cy="295" r="15" fill="#666" /> <!-- Residential Energy Assessor -->
+          <circle cx="370" cy="260" r="15" fill="#666" /> <!-- Energy Consultant -->
+        </g>
+
+        <!-- Swimlane 3 -->
+        <g id="swimlane3-paths-1">
+          <line x1="75" y1="440" x2="185" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. HVAC Tech to B.S. HVAC Tech -->
+          <line x1="75" y1="440" x2="90" y2="315" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. HVAC Tech to HVAC Technician -->
+          <line x1="175" y1="405" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S Building Automation Tech to Energy Consultant -->
+
+          <!-- Swimlane 3 Paths node highlights -->
+          <circle cx="75" cy="440" r="15" fill="#666" /> <!-- A.S. HVAC Tech -->
+          <circle cx="175" cy="405" r="15" fill="#666" /> <!-- B.S Building Automation Tech -->
+        </g>
+
+        <g id="swimlane4-paths-1">
+          <line x1="70" y1="555" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Electrician to Energy Consultant -->
+          <line x1="165" y1="660" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. Electro. Mech. Maint. Tech to Energy Consultant -->
+          <line x1="245" y1="580" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Navy UT Utilitiesman to Energy Consultant -->
+
+          <!-- Swimlane 4 Paths node highlights -->
+          <circle cx="70" cy="555"  r="15" fill="#666" /> <!-- Electrician -->
+          <circle cx="165" cy="660" r="15" fill="#666" /> <!-- A.S. Electro. Mech. Maint. Tech -->
+          <circle cx="245" cy="580" r="15" fill="#666" /> <!-- Navy UT Utilitiesman -->
+        </g>
+      </g>
+        
+      <!-- Building Energy Auditor paths & highlights-->
+      <g id="cert2-paths" style="display: none;">
+        <!-- Swimlane 1 -->
+        <g id="swimlane1-paths-2">
+          <line x1="105" y1="40" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. Mechanical Engineering to Energy Consultant -->
+          <line x1="155" y1="120" x2="540" y2="270" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Energy Engineer to Building Energy Auditor -->
+          <line x1="541" y1="270" x2="895" y2="140" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Energy Auditor to CEO/Owner of Energy Firm -->
+
+          <!-- Swimlane 1 Paths node highlights -->              
+          <circle cx="105" cy="40" r="15" fill="#666" /><!-- B.S. Mechanical Engineering -->
+          <circle cx="155" cy="120" r="15" fill="#666" /><!-- Energy Engineer -->
+          <circle cx="895" cy="140" r="15" fill="#666" /><!-- CEO/Owner of Energy Firm -->
+        </g>
+
+        <!-- Swimlane 2 -->
+        <g id="swimlane2-paths-2">
+          <!-- HVAC Technician to Energy Consultant -->
+          <line x1="95" y1="315" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          <!-- Air Force HVACR to Energy Consultant -->
+          <line x1="100" y1="240" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          <!-- B.S. HVAC Tech to Energy Consultant -->
+          <line x1="180" y1="260" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          <!-- Construction and Building Inspectors to Energy Consultant -->
+          <line x1="220" y1="215" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          <!-- Residential Energy Assessor to Energy Consultant -->
+          <line x1="270" y1="295" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          <!-- A.S. HVAC Tech to B.S. HVAC Tech -->
+          <line x1="75" y1="440" x2="185" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          <!-- A.S. HVAC Tech to HVAC Technician -->
+          <line x1="75" y1="440" x2="90" y2="315" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          <!-- B.S Building Automation Tech to Energy Consultant -->
+          <line x1="175" y1="405" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          <!-- Electrician to Energy Consultant -->
+          <line x1="80" y1="600" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          <!-- Navy UT Utilitiesman to Energy Consultant -->
+          <line x1="165" y1="645" x2="175" y2="405" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          <!-- A.S. Electro. Mech. Maint. Tech to Energy Consultant -->
+          <line x1="180" y1="590" x2="370" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+          <!-- Building Energy Auditor to Senior Energy Auditor -->
+          <line x1="541" y1="270" x2="770" y2="295" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+           <!-- Building Energy Auditor to Senior Technical Specialist -->
+          <line x1="541" y1="270" x2="885" y2="240" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+
+          <!-- Swimlane 2 Paths node highlights -->
+          <circle cx="90" cy="315" r="15" fill="#666" /> <!-- HVAC Technician -->
+          <circle cx="95" cy="240" r="15" fill="#666" /> <!-- Air Force HVACR -->
+          <circle cx="185" cy="260" r="15" fill="#666" /> <!-- B.S. HVAC Tech -->
+          <circle cx="220" cy="215" r="15" fill="#666" /> <!-- Construction and Building Inspectors -->
+          <circle cx="270" cy="295" r="15" fill="#666" /> <!-- Residential Energy Assessor -->
+          <circle cx="370" cy="260" r="15" fill="#666" /> <!-- Energy Consultant -->
+          <circle cx="75" cy="440" r="15" fill="#666" /> <!-- A.S. HVAC Tech -->
+          <circle cx="175" cy="405" r="15" fill="#666" /> <!-- B.S Building Automation Tech -->
+          <circle cx="770" cy="295" r="15" fill="#666" /> <!-- Senior Energy Auditor -->
+          <circle cx="885" cy="240" r="15" fill="#666" /> <!-- Senior Technical Specialist -->
+        </g>
+
+        <!-- Swimlane 3 -->
+        <g id="swimlane3-paths-2">
+          <line x1="105" y1="380" x2="340" y2="365" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+
+          <!-- Swimlane 3 Paths node highlights -->
+          <circle cx="220" cy="215" r="15" fill="#666" />
+          <circle cx="370" cy="260" r="15" fill="#666" />
+        </g>
+
+        <g id="swimlane4-paths-2">
+          <line x1="105" y1="540" x2="340" y2="545" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+
+          <!-- Swimlane 4 Paths node highlights -->
+          <circle cx="80" cy="600"  r="15" fill="#666" />
+          <circle cx="165" cy="645" r="15" fill="#666" />
+          <circle cx="180" cy="590" r="15" fill="#666" />
+        </g>
+      </g>
+
+      <!-- Building Commissioning Professional paths & highlights-->
+      <g id="cert3-paths" style="display: none;">
+        <!-- Swimlane 1 -->
+        <g id="swimlane1-paths-3">
+          <line x1="105" y1="40" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. Mechanical Engineering to Commissioning Technician -->
+          <line x1="155" y1="120" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Energy Engineer to Building Commissioning Professional-->
+
+          <!-- Swimlane 1 Paths node highlights -->
+          <circle cx="105" cy="40" r="15" fill="#666" /><!-- B.S. Mechanical Engineering -->
+          <circle cx="155" cy="120" r="15" fill="#666" /><!-- Energy Engineer -->
+        </g>
+
+        <!-- Swimlane 2 -->
+        <g id="swimlane2-paths-3">
+          <line x1="95" y1="315" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- HVAC Technician to Commissioning Technician -->
+          <line x1="180" y1="260" x2="360" y2="440" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. HVAC Tech to Controls Technician -->
+          <line x1="180" y1="260" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. HVAC Tech to Commissioning Technician -->
+
+          <!-- Swimlane 2 Paths node highlights -->
+          <circle cx="90" cy="315" r="15" fill="#666" /> <!-- HVAC Technician -->
+          <circle cx="185" cy="260" r="15" fill="#666" /> <!-- B.S. HVAC Tech -->
+        </g>
+
+        <!-- Swimlane 3 -->
+        <g id="swimlane3-paths-3">
+          <line x1="75" y1="440" x2="90" y2="315" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. HVAC Tech to HVAC Technician -->
+          <line x1="75" y1="440" x2="185" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. HVAC Tech to B.S HVAC Tech. -->
+          <line x1="155" y1="490" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Sheet Metal Worker to Commissioning Technician -->
+          <line x1="185" y1="390" x2="360" y2="440" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. Building Automation Tech to Controls Technician -->
+          <line x1="185" y1="390" x2="325" y2="475" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. Building Automation Tech to Commissioning Technician -->
+          <line x1="325" y1="475" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Controls Technician to Building Commissioning Professional -->
+          <line x1="360" y1="440" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Commissioning Technician to Building Commissioning Professional -->
+          <line x1="785" y1="410" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Commissioning Professional to Senior Commissioning Manager -->
+          <line x1="890" y1="490" x2="542" y2="438" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Commissioning Professional to President of Commissioning Firm -->
+
+          <!-- Swimlane 3 Paths node highlights -->
+          <circle cx="75" cy="440" r="15" fill="#666" /> <!-- A.S. HVAC Tech -->
+          <circle cx="155" cy="490" r="15" fill="#666" /> <!-- Sheet Metal Worker -->
+          <circle cx="185" cy="390" r="15" fill="#666" /> <!-- B.S. Building Automation Tech -->
+          <circle cx="325" cy="475" r="15" fill="#666" /> <!-- Commissioning Technician -->
+          <circle cx="360" cy="440" r="15" fill="#666" /> <!-- Controls Technician -->
+          <circle cx="785" cy="410" r="15" fill="#666" /> <!-- Senior Commissioning Manager -->
+          <circle cx="890" cy="490" r="15" fill="#666" /> <!-- President of Commissioning Firm -->
+        </g>
+
+        <!-- Swimlane 4 -->
+        <g id="swimlane4-paths-3">
+          <line x1="165" y1="660" x2="185" y2="390" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. Electro. Mech. Maint. Tech to B.S. Building Automation Tech -->
+
+          <!-- Swimlane 4 Paths node highlights -->            
+          <circle cx="165" cy="660" r="15" fill="#666" /> <!-- A.S. Electro. Mech. Maint. Tech -->
+        </g>
+      </g>
+
+      <!-- Building Operations Professional paths & highlights-->
+      <g id="cert4-paths" style="display: none;">
+        <!-- Swimlane 1 -->
+        <g id="swimlane1-paths-4">
+          <line x1="105" y1="40" x2="350" y2="550" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. Mechanical Engineering to Federal Facility Specialist -->
+        </g>
+
+        <!-- Swimlane 1 Paths node highlights -->
+        <g id="cert4-node-highlights">
+          <circle cx="105" cy="40" r="15" fill="#666" /><!-- B.S. Mechanical Engineering -->
+        </g>
+
+        <!-- Swimlane 2 -->
+        <g id="swimlane2-paths-4">
+          <line x1="95" y1="240" x2="395" y2="565" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Air Force HVACR to Building Engineer -->
+          <line x1="180" y1="260" x2="395" y2="565" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- B.S. HVAC Tech to Building Engineer -->
+          <line x1="95" y1="315" x2="395" y2="565" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- HVAC Technician to Building Engineer -->
+        </g>
+
+          <!-- Swimlane 2 Paths node highlights -->
+        <g id="cert4-node-highlights">
+          <circle cx="90" cy="315" r="15" fill="#666" /> <!-- HVAC Technician -->
+          <circle cx="95" cy="240" r="15" fill="#666" /> <!-- Air Force HVACR -->
+          <circle cx="185" cy="260" r="15" fill="#666" /> <!-- B.S. HVAC Tech -->
+        </g>
+
+        <!-- Swimlane 3 -->
+        <g id="swimlane3-paths-4">
+          <line x1="75" y1="440" x2="90" y2="315" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. HVAC Tech to HVAC Technician -->
+          <line x1="75" y1="440" x2="185" y2="260" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. HVAC Tech to B.S HVAC Tech. -->
+          <line x1="75" y1="440" x2="315" y2="645" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. HVAC Tech to Maintenance Technician -->
+          <line x1="75" y1="440" x2="410" y2="650" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. HVAC Tech to Superintendent -->
+        </g>
+
+        <!-- Swimlane 3 Paths node highlights -->
+        <g id="cert3-node-highlights">
+          <circle cx="75" cy="440" r="15" fill="#666" /> <!-- A.S. HVAC Tech -->
+        </g>
+
+        <!-- Swimlane 4 -->
+        <g id="swimlane4-paths-4">
+          <line x1="70" y1="555" x2="395" y2="565" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Electrician to Building Engineer -->
+          <line x1="110" y1="615" x2="315" y2="645" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. Building Maint. Tech to Maintenance Technician -->
+          <line x1="165" y1="660" x2="315" y2="645" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- A.S. Electro. Mech. Maint. Tech to Maintenance Technician -->
+          <line x1="245" y1="580" x2="395" y2="565" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Navy UT Utilitiesman to Building Engineer -->
+          <line x1="315" y1="645" x2="395" y2="565" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Maintenance Technician to Building Engineer -->
+          <line x1="350" y1="550" x2="375" y2="620" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Federal Facility Specialist to Federal Facility Manager -->
+          <line x1="375" y1="620" x2="542" y2="618" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Federal Facility Manager to Building Operations Professional -->
+          <line x1="395" y1="565" x2="542" y2="618" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Engineer to Building Operations Professional -->
+          <line x1="410" y1="650" x2="542" y2="618" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Superintendent to Building Operations Professional -->
+          <line x1="542" y1="618" x2="680" y2="560" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Operations Professional to Senior Manager of Operations -->
+          <line x1="542" y1="618" x2="710" y2="650" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Operations Professional to Chief Building Engineer -->
+          <line x1="542" y1="618" x2="850" y2="615" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Operations Professional to Chief Engineer (Federal O&M Contractor) -->
+          <line x1="542" y1="618" x2="970" y2="550" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Operations Professional to Regional Facility Manager -->
+          <line x1="542" y1="618" x2="965" y2="665" stroke="#666" stroke-width="5" stroke-opacity="0.5" /> <!-- Building Operations Professional to Director of Maintenance -->
+        </g>
+
+        <g id="cert4-node-highlights">
+          <!-- Swimlane 4 Paths node highlights -->
+          <circle cx="70" cy="555" r="15" fill="#666" /> <!-- Electrician -->
+          <circle cx="110" cy="615" r="15" fill="#666" /> <!-- A.S. Building Maint. Tech -->    
+          <circle cx="165" cy="660" r="15" fill="#666" /> <!-- A.S. Electro. Mech. Maint. Tech -->
+          <circle cx="245" cy="580" r="15" fill="#666" /> <!-- Navy UT Utilitiesman -->
+          <circle cx="315" cy="645" r="15" fill="#666" /> <!-- Maintenance Technician -->
+          <circle cx="350" cy="550" r="15" fill="#666" /> <!-- Federal Facility Specialist -->
+          <circle cx="375" cy="620" r="15" fill="#666" /> <!-- Federal Facility Manager -->
+          <circle cx="395" cy="565" r="15" fill="#666" /> <!-- Building Engineer -->
+          <circle cx="410" cy="650" r="15" fill="#666" /> <!-- Superintendent -->
+          <circle cx="680" cy="560" r="15" fill="#666" /> <!-- Senior Manager of Operations -->
+          <circle cx="710" cy="650" r="15" fill="#666" /> <!-- Chief Building Engineer -->
+          <circle cx="850" cy="615" r="15" fill="#666" /> <!-- Chief Engineer (Federal O&M Contractor) -->
+          <circle cx="970" cy="550" r="15" fill="#666" /> <!-- Regional Facility Manager -->
+          <circle cx="965" cy="665" r="15" fill="#666" /> <!-- Director of Maintenance -->
+        </g>
+      </g>
+
+        <!-- nodes -->
+        <g id="all-nodes">
+          <g id="swimlane1-nodes">
+            <circle cx="105" cy="40" r="10" fill="#6eaf45" /> <!-- B.S. Mechanical Eng. -->
+            <circle cx="155" cy="120" r="10" fill="#6eaf45" /> <!-- Energy Engineer -->
+            <circle cx="235" cy="75" r="10" fill="#6eaf45" /> <!-- Federal Energy Engineer -->
+            <circle cx="350" cy="135" r="10" fill="#6eaf45" /> <!-- Sustainability Specialist -->
+            <circle cx="705" cy="55" r="10" fill="#6eaf45" /> <!-- Chief Sustainability Officer -->
+            <circle cx="765" cy="110" r="10" fill="#6eaf45" /> <!-- Regional Energy Manager -->
+            <circle cx="895" cy="140" r="10" fill="#6eaf45" /> <!-- CEO/Owner of Energy Firm -->
+          </g>
+          <g id="swimlane2-nodes">
+            <circle cx="90" cy="315" r="10" fill="#f7931f" /> <!-- HVAC Technician -->
+            <circle cx="95" cy="240" r="10" fill="#f7931f" /> <!-- Air Force HVACR -->
+            <circle cx="185" cy="260" r="10" fill="#f7931f" /> <!-- B.S. HVAC Tech -->
+            <circle cx="220" cy="215" r="10" fill="#f7931f" /> <!-- Construction and Building Inspectors -->
+            <circle cx="270" cy="295" r="10" fill="#f7931f" /> <!-- Residential Energy Assessor -->
+            <circle cx="370" cy="260" r="10" fill="#f7931f" /> <!-- Energy Consultant -->
+            <circle cx="770" cy="295" r="10" fill="#f7931f" /> <!-- Senior Technical Specialist -->
+            <circle cx="885" cy="240" r="10" fill="#f7931f" /> <!-- Senior Energy Auditor -->
+          </g>
+          <g id="swimlane3-nodes">
+            <circle cx="75" cy="440" r="10" fill="#00919f" /> <!-- A.S. HVAC Tech -->
+            <circle cx="155" cy="490" r="10" fill="#00919f" /> <!-- Sheet Metal Worker -->
+            <circle cx="175" cy="405" r="10" fill="#00919f" /> <!-- B.S. Building Automation Tech -->
+            <circle cx="325" cy="475" r="10" fill="#00919f" /> <!-- Commissioning Technician -->
+            <circle cx="360" cy="440" r="10" fill="#00919f" /> <!-- Controls Technician -->
+            <circle cx="785" cy="410" r="10" fill="#00919f" /> <!-- Senior Commissioning Manager -->
+            <circle cx="890" cy="490" r="10" fill="#00919f" /> <!-- President of Commissioning Firm -->
+          </g>
+          <g id="swimlane4-nodes">
+            <circle cx="70" cy="555" r="10" fill="#ac4c6a" /> <!-- Electrician -->
+            <circle cx="110" cy="615" r="10" fill="#ac4c6a" /> <!-- A.S. Building Maint. Tech -->
+            <circle cx="165" cy="660" r="10" fill="#ac4c6a" /> <!-- A.S. Electro. Mech. Maint. Tech -->
+            <circle cx="245" cy="580" r="10" fill="#ac4c6a" /> <!-- Navy UT Utilitiesman -->
+            <circle cx="315" cy="645" r="10" fill="#ac4c6a" /> <!-- Maintenance Technician -->
+            <circle cx="350" cy="550" r="10" fill="#ac4c6a" /> <!-- Federal Facility Specialist -->
+            <circle cx="375" cy="620" r="10" fill="#ac4c6a" /> <!-- Federal Facility Manager -->
+            <circle cx="395" cy="565" r="10" fill="#ac4c6a" /> <!-- Building Engineer -->
+            <circle cx="410" cy="650" r="10" fill="#ac4c6a" /> <!-- Superintendent -->
+            <circle cx="680" cy="560" r="10" fill="#ac4c6a" /> <!-- Senior Manager of Operations -->
+            <circle cx="710" cy="650" r="10" fill="#ac4c6a" /> <!-- Chief Building Engineer -->
+            <circle cx="850" cy="615" r="10" fill="#ac4c6a" /> <!-- Chief Engineer (Federal O&M Contractor) -->
+            <circle cx="970" cy="550" r="10" fill="#ac4c6a" /> <!-- Regional Facility Manager -->
+            <circle cx="965" cy="665" r="10" fill="#ac4c6a" /> <!-- Director of Maintenance -->
+          </g>
+        </g>
+
+        <!-- text -->
+        <g id="all-text" style="display: none;">
+          <g id="swimlane1-text">
+            <text class="jobtitle" text-anchor="middle" x="100" y="25">B.S. Mechanical Eng.</text>
+            <text class="jobtitle" text-anchor="middle" x="150" y="105">Energy Engineer</text>
+            <text class="jobtitle" text-anchor="middle" x="230" y="60">Federal Energy Engineer</text>
+            <text class="jobtitle" text-anchor="middle" x="345" y="120">Sustainability Specialist</text>
+            <text class="jobtitle" text-anchor="middle" x="700" y="40">Chief Sustainability Officer</text>
+            <text class="jobtitle" text-anchor="middle" x="760" y="95">Regional Energy Manager</text>
+            <text class="jobtitle" text-anchor="middle" x="890" y="125">CEO/Owner of Energy Firm</text>
+          </g>
+          <g id="swimlane2-text"> 
+            <text class="jobtitle" text-anchor="middle" x="90" y="300">HVAC Technician</text>
+            <text class="jobtitle" text-anchor="middle" x="95" y="225">Air Force HVACR</text>
+            <text class="jobtitle" text-anchor="middle" x="185" y="245">B.S. HVAC Tech</text>
+            <text class="jobtitle" text-anchor="middle" x="220" y="200">Construction and Building Inspectors</text>
+            <text class="jobtitle" text-anchor="middle" x="270" y="280">Residential Energy Assessor</text>
+            <text class="jobtitle" text-anchor="middle" x="370" y="245">Energy Consultant</text>
+            <text class="jobtitle" text-anchor="middle" x="770" y="280">Senior Energy Auditor</text>
+            <text class="jobtitle" text-anchor="middle" x="885" y="225">Senior Technical Specialist</text>
+          </g>
+          <g id="swimlane3-text">
+            <text class="jobtitle" text-anchor="middle" x="80" y="425">A.S. HVAC Tech</text>
+            <text class="jobtitle" text-anchor="middle" x="155" y="475">Sheet Metal Worker</text>
+            <text class="jobtitle" text-anchor="middle" x="175" y="390">B.S. Building Automation Tech</text>
+            <text class="jobtitle" text-anchor="middle" x="325" y="460">Commissioning Technician</text>
+            <text class="jobtitle" text-anchor="middle" x="360" y="425">Controls Technician</text>
+            <text class="jobtitle" text-anchor="middle" x="785" y="395">Senior Commissioning Manager</text>
+            <text class="jobtitle" text-anchor="middle" x="890" y="475">President of Commissioning Firm</text>
+          </g>
+          <g id="swimlane4-text">
+            <text class="jobtitle" text-anchor="middle" x="70" y="540">Electrician</text>
+            <text class="jobtitle" text-anchor="middle" x="110" y="600">A.S. Building Maint. Tech</text>
+            <text class="jobtitle" text-anchor="middle" x="165" y="645">A.S. Electro. Mech. Maint. Tech</text>
+            <text class="jobtitle" text-anchor="middle" x="245" y="565">Navy UT Utilitiesman</text>
+            <text class="jobtitle" text-anchor="middle" x="315" y="620">Maintenance Technician</text>
+            <text class="jobtitle" text-anchor="middle" x="350" y="535">Federal Facility Specialist</text>
+            <text class="jobtitle" text-anchor="middle" x="375" y="605">Federal Facility Manager</text>
+            <text class="jobtitle" text-anchor="middle" x="395" y="550">Building Engineer</text>
+            <text class="jobtitle" text-anchor="middle" x="410" y="635">Superintendent</text>
+            <text class="jobtitle" text-anchor="middle" x="680" y="545">Senior Manager of Operations</text>
+            <text class="jobtitle" text-anchor="middle" x="710" y="635">Chief Building Engineer</text>
+            <text class="jobtitle" text-anchor="middle" x="850" y="600">Chief Engineer (Federal O&M Contractor)</text>
+            <text class="jobtitle" text-anchor="middle" x="970" y="535">Regional Facility Manager</text>
+            <text class="jobtitle" text-anchor="middle" x="965" y="650">Director of Maintenance</text>
+          </g>
+        </g>
+        <g id="text1" style="display: none;">
+          <g id="swimlane1-text">
+            <text class="jobtitle" text-anchor="middle" x="100" y="25">B.S. Mechanical Eng.</text>
+            <text class="jobtitle" text-anchor="middle" x="150" y="105">Energy Engineer</text>
+            <text class="jobtitle" text-anchor="middle" x="230" y="60">Federal Energy Engineer</text>
+            <text class="jobtitle" text-anchor="middle" x="345" y="120">Sustainability Specialist</text>
+            <text class="jobtitle" text-anchor="middle" x="700" y="40">Chief Sustainability Officer</text>
+            <text class="jobtitle" text-anchor="middle" x="760" y="95">Regional Energy Manager</text>
+            <text class="jobtitle" text-anchor="middle" x="890" y="125">CEO/Owner of Energy Firm</text>
+          </g>
+          <g id="swimlane2-text"> 
+            <text class="jobtitle" text-anchor="middle" x="90" y="300">HVAC Technician</text>
+            <text class="jobtitle" text-anchor="middle" x="95" y="225">Air Force HVACR</text>
+            <text class="jobtitle" text-anchor="middle" x="185" y="245">B.S. HVAC Tech</text>
+            <text class="jobtitle" text-anchor="middle" x="220" y="200">Construction and Building Inspectors</text>
+            <text class="jobtitle" text-anchor="middle" x="270" y="280">Residential Energy Assessor</text>
+            <text class="jobtitle" text-anchor="middle" x="370" y="245">Energy Consultant</text>
+          </g>
+          <g id="swimlane3-text">
+            <text class="jobtitle" text-anchor="middle" x="80" y="425">A.S. HVAC Tech</text>
+            <text class="jobtitle" text-anchor="middle" x="175" y="390">B.S. Building Automation Tech</text>
+          </g>
+          <g id="swimlane4-text">
+            <text class="jobtitle" text-anchor="middle" x="70" y="540">Electrician</text>
+            <text class="jobtitle" text-anchor="middle" x="165" y="645">A.S. Electro. Mech. Maint. Tech</text>
+            <text class="jobtitle" text-anchor="middle" x="245" y="565">Navy UT Utilitiesman</text>
+          </g>
+        </g>
+        <g id="text2" style="display: none;">
+          <g id="swimlane1-text">
+            <text class="jobtitle" text-anchor="middle" x="100" y="25">B.S. Mechanical Eng.</text>
+            <text class="jobtitle" text-anchor="middle" x="150" y="105">Energy Engineer</text>
+            <text class="jobtitle" text-anchor="middle" x="230" y="60">Federal Energy Engineer</text>
+            <text class="jobtitle" text-anchor="middle" x="345" y="120">Sustainability Specialist</text>
+            <text class="jobtitle" text-anchor="middle" x="890" y="125">CEO/Owner of Energy Firm</text>
+          </g>
+          <g id="swimlane2-text">
+            <text class="jobtitle" text-anchor="middle" x="90" y="300">HVAC Technician</text>
+            <text class="jobtitle" text-anchor="middle" x="95" y="225">Air Force HVACR</text>
+            <text class="jobtitle" text-anchor="middle" x="185" y="245">B.S. HVAC Tech</text>
+            <text class="jobtitle" text-anchor="middle" x="220" y="200">Construction and Building Inspectors</text>
+            <text class="jobtitle" text-anchor="middle" x="270" y="280">Residential Energy Assessor</text>
+            <text class="jobtitle" text-anchor="middle" x="370" y="245">Energy Consultant</text>
+            <text class="jobtitle" text-anchor="middle" x="770" y="280">Senior Energy Auditor</text>
+            <text class="jobtitle" text-anchor="middle" x="885" y="225">Senior Technical Specialist</text>
+          </g>
+          <g id="swimlane3-text">
+            <text class="jobtitle" text-anchor="middle" x="80" y="425">A.S. HVAC Tecg</text>
+            <text class="jobtitle" text-anchor="middle" x="235" y="390">B.S. Building Automation Tech</text>
+          </g>
+          <g id="swimlane4-text">
+            <text class="jobtitle" text-anchor="middle" x="85" y="560">Electrician</text>
+            <text class="jobtitle" text-anchor="middle" x="185" y="670">A.S. Electro. Mech. Maint. Tech</text>
+            <text class="jobtitle" text-anchor="middle" x="205" y="575">Navy UT Utilitiesman</text>
+          </g>
+        </g>
+
+
+        <g id="text3" style="display: none;">
+          <g id="swimlane1-text">
+            <text class="jobtitle" text-anchor="middle" x="100" y="25">B.S. Mechanical Eng.</text> <text class="jobtitle" text-anchor="middle" x="150" y="105">Energy Engineer</text>
+          </g>
+          <g id="swimlane2-text"> 
+            <text class="jobtitle" text-anchor="middle" x="90" y="300">HVAC Technician</text>
+            <text class="jobtitle" text-anchor="middle" x="185" y="245">B.S. HVAC Tech</text>
+          </g>
+          <g id="swimlane3-text">
+            <text class="jobtitle" text-anchor="middle" x="80" y="425">A.S. HVAC Tech</text> <text class="jobtitle" text-anchor="middle" x="155" y="475">Sheet Metal Worker</text>
+            <text class="jobtitle" text-anchor="middle" x="175" y="375">B.S. Building Automation Tech</text>
+            <text class="jobtitle" text-anchor="middle" x="325" y="460">Commissioning Technician</text>
+            <text class="jobtitle" text-anchor="middle" x="360" y="425">Controls Technician</text>
+            <text class="jobtitle" text-anchor="middle" x="785" y="395">Senior Commissioning Manager</text>
+            <text class="jobtitle" text-anchor="middle" x="890" y="475">President of Commissioning Firm</text>
+          </g>
+          <g id="swimlane4-text">
+            <text class="jobtitle" text-anchor="middle" x="165" y="645">A.S. Electro. Mech. Maint. Tech</text>
+          </g>
+        </g>
+
+        <g id="text4" style="display: none;">
+          <g id="swimlane1-text">
+              <text class="jobtitle" text-anchor="middle" x="100" y="25">B.S. Mechanical Eng.</text>
+            </g>
+            <g id="swimlane2-text"> 
+              <text class="jobtitle" text-anchor="middle" x="90" y="300">HVAC Technician</text>
+              <text class="jobtitle" text-anchor="middle" x="95" y="225">Air Force HVACR</text>
+              <text class="jobtitle" text-anchor="middle" x="185" y="245">B.S. HVAC Tech</text>
+            </g>
+            <g id="swimlane3-text">
+              <text class="jobtitle" text-anchor="middle" x="80" y="425">A.S. HVAC Tech</text>
+            </g>
+            <g id="swimlane4-text">
+              <text class="jobtitle" text-anchor="middle" x="70" y="540">Electrician</text>
+              <text class="jobtitle" text-anchor="middle" x="110" y="600">A.S. Building Maint. Tech</text>
+              <text class="jobtitle" text-anchor="middle" x="165" y="645">A.S. Electro. Mech. Maint. Tech</text>
+              <text class="jobtitle" text-anchor="middle" x="245" y="565">Navy UT Utilitiesman</text>
+              <text class="jobtitle" text-anchor="middle" x="315" y="620">Maintenance Technician</text>
+              <text class="jobtitle" text-anchor="middle" x="350" y="535">Federal Facility Specialist</text>
+              <text class="jobtitle" text-anchor="middle" x="375" y="605">Federal Facility Manager</text>
+              <text class="jobtitle" text-anchor="middle" x="395" y="550">Building Engineer</text>
+              <text class="jobtitle" text-anchor="middle" x="410" y="635">Superintendent</text>
+              <text class="jobtitle" text-anchor="middle" x="680" y="545">Senior Manager of Operations</text>
+              <text class="jobtitle" text-anchor="middle" x="710" y="635">Chief Building Engineer</text>
+              <text class="jobtitle" text-anchor="middle" x="850" y="600">Chief Engineer (Federal O&M Contractor)</text>
+              <text class="jobtitle" text-anchor="middle" x="970" y="535">Regional Facility Manager</text>
+              <text class="jobtitle" text-anchor="middle" x="965" y="650">Director of Maintenance</text>
+            </g>
+          </g>
+
+
+          <!-- images -->
+
+          <!-- Draw images and circles -->
+          <g id="cert-icons" style="display: block;" transform="translate(472,15)">
+            <g id="cert1-icon" class="cert-icon" transform="translate(0,0)">
+              <rect id="cert1-icon" x="0" y="0" width="121" height="134" rx="10" ry="10" fill="#6eaf45" stroke="#666" stroke-width="5" />
+            </g>
+            <g id="cert2-icon" class="cert-icon" transform="translate(0,181)">
+              <rect x="0" y="0" width="121" height="134" rx="10" ry="10" fill="#f7931f" stroke="#666" stroke-width="5" />
+            </g>
+            <g id="cert3-icon" class="cert-icon" transform="translate(0,356)">
+              <rect x="0" y="0" width="121" height="134" rx="10" ry="10" fill="#00919f" stroke="#666" stroke-width="5" />
+            </g>
+            <g id="cert4-icon" class="cert-icon" transform="translate(0,531)">
+              <rect x="0" y="0" width="121" height="134" rx="10" ry="10" fill="#ac4c6a" stroke="#666" stroke-width="5" />
+            </g>
+          </g>
+
+        </svg>
+      </div>
+      <div style="float: left;">
+        <svg width="200" height="700">
+          <rect x="0" y="0" width="200" height="700" fill="#FFFFFF" />
+        </svg>  
+      </div>
+
+      <script type="text/javascript">
+        // Get the target element
+        const targetElement = document.getElementById("swimlane1-paths-1");
+
+        // Get the area element
+        const areaElement = document.getElementById("cert1-icon");
+
+        // Variable to track the visibility state
+        let isVisible = false;
+
+        // Function to toggle visibility
+        function toggleVisibility() {
+          if (isVisible) {
+            // Hide the target element
+            targetElement.style.display = "block";
+            isVisible = false;
+          } else {
+            // Show the target element
+            targetElement.style.display = "none";
+            isVisible = true;
+          }
+        }
+
+        // Add event listener for click on the area
+        areaElement.addEventListener("click", toggleVisibility);
+      </script>
+
+        
+      </script>
+
+
+<!--       <script type="text/javascript">
+        // Get the target element
+        const targetElement1_1 = document.getElementById("cert1-paths");
+        const targetElement2_1 = document.getElementById("text1");
+        const targetElement1_2 = document.getElementById("cert2-paths");
+        const targetElement2_2 = document.getElementById("text2");
+        const targetElement1_3 = document.getElementById("cert3-paths");
+        const targetElement2_3 = document.getElementById("text3");
+        const targetElement1_4 = document.getElementById("cert4-paths");
+        const targetElement2_4 = document.getElementById("text4");
+
+        // Get the area element
+        const areaElement1 = document.getElementById("cert1-icon");
+        const areaElement2 = document.getElementById("cert2-icon");
+        const areaElement3 = document.getElementById("cert3-icon");
+        const areaElement4 = document.getElementById("cert4-icon");
+
+        // // Flag to track the visibility state of target elements
+        // let showLaneOne = false;
+        // let isLocked1 = false;
+
+        // // Function to toggle the target elements' display
+        // function lockLane1() {
+        //   if (!showLaneOne && isLocked1) {
+        //     targetElement1_1.style.display = "block";
+        //     targetElement2_1.style.display = "block";
+        //     showLaneOne = true;
+        //   }
+        // }
+
+        // // Add event listener for click on the area
+        // areaElement1.addEventListener("click", () => {
+        //   isLocked1 = true;
+        //   lockLane1();
+        // });
+
+        // // Add event listener for click anywhere on the page
+        // document.addEventListener("click", (event) => {
+        //   if (showLaneOne && isLocked1) {
+        //     targetElement1_1.style.display = "none";
+        //     targetElement2_1.style.display = "none";
+        //     showLaneOne = false;
+        //     isLocked1 = false;
+        //   }
+        // });
+
+        // Add event listener for mouseover on the area
+        areaElement1.addEventListener("mouseover", () => {
+          // Show the target element
+          targetElement1_1.style.display = "block";
+          targetElement2_1.style.display = "block";
+        });
+
+        // Add event listener for mouseout on the area
+        areaElement1.addEventListener("mouseout", () => {
+          // Hide the target element
+          targetElement1_1.style.display = "none";
+          targetElement2_1.style.display = "none";
+        });
+
+        // Add event listener for mouseover on the area
+        areaElement2.addEventListener("mouseover", () => {
+          // Show the target element
+          targetElement1_2.style.display = "block";
+          targetElement2_2.style.display = "block";
+        });
+
+        // Add event listener for mouseout on the area
+        areaElement2.addEventListener("mouseout", () => {
+          // Hide the target element
+          targetElement1_2.style.display = "none";
+          targetElement2_2.style.display = "none";
+        });
+
+        // Add event listener for mouseover on the area
+        areaElement3.addEventListener("mouseover", () => {
+          // Show the target element
+          targetElement1_3.style.display = "block";
+          targetElement2_3.style.display = "block";
+        });
+
+        // Add event listener for mouseout on the area
+        areaElement3.addEventListener("mouseout", () => {
+          // Hide the target element
+          targetElement1_3.style.display = "none";
+          targetElement2_3.style.display = "none";
+        });
+
+        // Add event listener for mouseover on the area
+        areaElement4.addEventListener("mouseover", () => {
+          // Show the target element
+          targetElement1_4.style.display = "block";
+          targetElement2_4.style.display = "block";
+        });
+
+        // Add event listener for mouseout on the area
+        areaElement4.addEventListener("mouseout", () => {
+          // Hide the target element
+          targetElement1_4.style.display = "none";
+          targetElement2_4.style.display = "none";
+        });
+      </script> -->
+
+    </body>
+  </html>
+
+
+
+
+  <!-- <!DOCTYPE html>
+  <html>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>canvas test</title>
+  	<script type="text/javascript" src="/wp-admin/themes/twentysixteen-child/mycanvas.js"></script>
+  	<link rel="stylesheet" type="text/css" href="mycanvas.css">
+  </head>
+  <body>
+  <img id="myImage" src="myimage.png" alt="My Image">
+  <canvas id="myCanvas" width="600px" height="400px">My Canvas Element</canvas>
+  </body>
+</html> -->

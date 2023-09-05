@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  svg {
+    width: 400px;
+    height: 200px;
+  }
+</style>
+</head>
+<body>
+
+<svg id="svg-container">
+  <circle id="job1" cx="50" cy="100" r="10" fill="green"/>
+  <circle id="job2" cx="250" cy="100" r="10" fill="green"/>
+  <line id="path1" x1="50" y1="100" x2="250" y2="100" stroke="#666" stroke-width="5" opacity="0" style="z-index: -1;" />
+</svg>
+
+<script>
+  const job1 = document.getElementById("job1");
+  const path1 = document.getElementById("path1");
+
+  let isPathVisible = false;
+
+  job1.addEventListener("mouseover", () => {
+    if (!isPathVisible) {
+      path1.style.opacity = "0.6";
+    }
+  });
+
+  job1.addEventListener("mouseout", () => {
+    if (!isPathVisible) {
+      path1.style.opacity = "0";
+    }
+  });
+
+  job1.addEventListener("click", () => {
+    isPathVisible = !isPathVisible;
+    if (isPathVisible) {
+      path1.style.opacity = "1";
+      job1.removeEventListener("mouseover", onMouseOver);
+      job1.removeEventListener("mouseout", onMouseOut);
+    } else {
+      path1.style.opacity = "0";
+      job1.addEventListener("mouseover", onMouseOver);
+      job1.addEventListener("mouseout", onMouseOut);
+    }
+  });
+</script>
+
+</body>
+</html>

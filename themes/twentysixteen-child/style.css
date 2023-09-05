@@ -1,0 +1,625 @@
+/*
+Theme Name:   Twenty Sixteen Child
+Theme URI:    http://example.com/twenty-fifteen-child/
+Description:  Twenty Sixteen Child Theme
+Author:       J. Howard
+Author URI:   http://justhow.info
+Template:     twentysixteen
+Version:      1.0.0
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+Text Domain:  twentysixteenchild
+*/
+
+html {
+    line-height: 1.5;
+}
+
+body {
+	background-color: rgb(250, 250, 250);
+    margin: 0px;
+    padding: 0px;
+    font-family: Cantarell, Helvetica, "Helvetica Neue", "Trebuchet MS", Arial, sans-serif;
+    font-size: 87.5%;
+    font-weight: 400;
+    line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    clear: both;
+    font-weight: 700;
+    margin: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-rendering: optimizeLegibility;
+    font-family: Cantarell, Helvetica, "Helvetica Neue", "Trebuchet MS", Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 1.1em 0;
+}
+
+h2 {
+    font-size: 1.55em;
+    margin: .88em 0;
+
+}
+
+h3 {
+    font-size: 1.17em;
+    font-weight: 700;
+    text-decoration: underline;
+    margin: 0.66em 0;
+    line-height: 1.5;
+    padding-top: 10px;
+
+}
+
+h4 {
+    font-size: 1em;
+    margin: 0.48em 0;
+    line-height: 1.3;
+    padding-top: 6px;
+}
+
+a {
+	color: rgb(0, 102, 204);
+	text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: rgb(121, 92, 178);
+}
+
+a:focus {
+	color: rgb(0, 0, 0);
+	outline: thin dotted;
+}
+
+a:hover,
+a:active {
+	outline: 0;
+	font-weight: bold;
+}
+
+menu, ol, ul {
+  padding: 0px;
+  margin-left: 1.25em;
+}
+
+dl, menu, ol, ul {
+  margin: 0 0 0 1em;
+}
+
+p, pre {
+  margin: 0 0 1.5em;
+}
+
+#masthead {
+	clear: both;
+    background-color: #fff;
+    color:#fafafa;
+    /*text-align: center;font-size: 11px;line-height: 21px; margin-bottom: 2px;*/
+    border-bottom:10px solid #e9eaee;
+    min-height:45px;
+}
+
+.site-header {
+	padding: 0 0 0 0;
+}
+
+.site-header::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.site-header-menu {
+	margin: 10px 0;
+}
+
+.header-image {
+	float: left;
+	margin: 10px;
+	display: table;
+	clear: both;
+
+}
+
+.header-image a {
+	vertical-align: bottom;
+	max-width: 250px;
+	max-height: 100px;
+}
+
+.site-title {
+	display: none;
+}
+
+.site-inner {
+	max-width: none;
+	background-color: rgb(255, 255, 255);
+}
+
+#site-navigation {
+
+}
+
+.main-navigation {
+    font-family: Cantarell, Helvetica, "Helvetica Neue", "Trebuchet MS", Arial, sans-serif;
+}
+
+.main-navigation a {
+	color: rgb(0, 102, 204);
+	text-decoration: none;
+}
+
+.main-navigation a:hover,
+.main-navigation a:focus,
+.main-navigation a:active {
+	color: rgb(121, 92, 178);
+}
+
+.main-navigation a:visited {
+	color: rgb(121, 92, 178);
+}
+
+.site-header-menu {
+	margin-top: 55px;
+}
+
+.site-main {
+    margin-bottom: 3.5em;
+    min-height: 33vw;
+}
+
+.entry-title {
+    margin: 1.6rem 0 1.2rem 0;
+    line-height: 1.5;
+    font-size: 2em;
+    font-family: Cantarell, Helvetica, "Helvetica Neue", "Trebuchet MS", Arial, sans-serif;
+}
+
+#content {
+	width: 100%;
+	max-width: 89%;
+	margin-right: 5.5%;
+	margin-left: 5.5%;
+    text-align: justify;
+}
+
+.content-area {
+	float: left;
+	margin-right: 0;
+	width: 100%;
+}
+
+.entry-content h2, .entry-summary h2, .comment-content h2 {
+    font-size: 1em;
+    font-family: Cantarell, Helvetica, "Helvetica Neue", "Trebuchet MS", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    margin-bottom: 0;
+}
+
+.entry-content h3, .entry-summary h3, .comment-content h3, .textwidget h3 {
+    font-weight: 700;
+}
+
+.entry-content h4, .entry-content h5, .entry-content h6, .entry-summary h4, .entry-summary h5, .entry-summary h6, .comment-content h4, .comment-content h5, .comment-content h6, .textwidget h4, .textwidget h5, .textwidget h6 {
+    font-size: 14px;
+    font-size: 1.05em;
+    line-height: 1.1;
+    margin-top: 1.35em;
+    margin-bottom: 1.05em;
+}
+
+.entry-content h4, .entry-summary h4, .comment-content h4, .textwidget h4 {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.post-thumbnail img {
+    float: left;
+    text-align: center;
+    padding: 0 7px 7px 0;
+}
+
+/** 
+ * Page Specific Formatting
+**/
+
+/* Homepage */
+/* Hide 'Home' title on homepage
+ */
+
+.page-id-7 .entry-title{
+    display:none;
+} 
+
+.cert-table .cert-caption {
+    font-size: .8em;
+    text-align: center;
+}
+
+/*Canvas Styles*/
+
+#map-content {
+    padding-top: 2em;
+    position:relative;
+}
+
+#mappingToolWrapper{
+    position:relative;
+    width:1105px
+}
+
+#accordion h3+ div{padding:0px 5px 0px 5px;}
+#accordion .ui-accordion-content-active{margin-bottom: 35px;}
+#accordion h3#keysToSuccess.ui-state-default{margin: 0px;}
+
+#pathDescription{
+    position:absolute;
+    width:350px;
+    background-color: #ffffff;
+    border:1px solid #000;
+    border-radius: 15px;
+    padding:5px;
+    text-align:left;
+    display:none;
+    padding:5px;
+}
+#pathDescription div{   
+    max-height:150px;
+    overflow-y:auto;
+    min-height:25px;
+}
+#closePathDescription{
+    float:right;
+    height:15px;
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 5px;
+    color:#ff0000;
+}
+#presetIcons{
+    width:1105px;
+    text-align:center;
+    white-space: nowrap;
+    line-height: 12px;
+    overflow: hidden;
+    float:left;
+}
+#presetIcons div.filter img{max-width:110px;}
+#presetIcons div.filter{
+    width:130px;
+    height:auto;
+    cursor:pointer;
+    margin: 0px 10px 15px 10px;
+    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
+    text-wrap: normal; 
+}
+
+
+#careerMap{border:1px solid;float:left;width:775px;height:500px;}
+#sidebarContainer{margin-left:2px;border:1px solid;float:left;width:200px;height:500px;font-weight:bold;overflow:visible;}
+.one-sidebar #content.career-content{width:auto;}
+#sidebarTitle{display:block;height:45px;width:340px;right:5px;text-align:center;line-height:45px;font-weight:bold;font-size:1.2em;}
+#sidebarBanner{}
+#swimlaneDesc{float:left;position:relative;width:120px;height:500px;border:1px solid;margin-right:2px;}
+#sidebarText{font-size:10px;font-weight:normal;width:96%;margin-left:2%;margin-right:2%;height:485px;margin-top: 55px;}
+#sidebarText strong{font-weight:bold;font-size:1.1em;}
+.titlePosition{position:absolute;top:25px;right:0px;}
+#moreInfo{display:none;}
+#infoBanner{}
+#infoBannerText{display:block;top:476px;right:90px;color:#000;text-decoration:none;font-weight:bold;}
+a #infoBannerText{color:#000;text-decoration:none;}
+.footerPosition{position:absolute;top:450px;right:14px;}
+#accordion {
+    width:100%;
+    font-size:12px;
+    font-weight:normal;
+    margin-top: 5px;
+    display:none;
+}
+
+.ui-accordion{}
+.ui-accordion-header{cursor: pointer;border:none;}
+.ui-accordion-content{
+    border-radius: 0px;
+    background:none;
+    border:none;
+}
+.ui-accordion ul{
+    padding: 0 0 0 20px;
+}
+
+#accordion h3{
+    background-color:transparent;
+    background-repeat: no-repeat;
+    background-size: 200px 50px;
+    height:25px;
+    text-align:left;
+    color:#fff;
+    font-family:Arial;
+    line-height:25px;
+    text-indent:5px;
+    border-radius: 0px;
+    margin:0px;
+    font-size:12px;
+    position:relative;
+    font-weight: normal;
+}
+#keysToSuccess{
+    background-image: url("images/sidebanner-1.png");
+    z-index: 500;
+    background-position: 0px 0px;
+}
+#jobDetail{
+    background-image: url("images/sidebanner-2.png");
+    z-index: 4;
+    background-position: -15px 0px;
+}
+#jobTask{
+    background-image: url("images/sidebanner-3.png");
+    background-position: -30px 0px;
+    z-index: 3;
+}
+#compModel{
+    background-image: url("images/sidebanner-4.png");
+    z-index: 2;
+    background-position: -45px 0px;
+}
+
+
+#energyAudit,#energyMgmt,#buildingComm,#buildingOps{height:115px;position:absolute;font-size:12px;padding:0px 5px 0px 5px;}
+#energyMgmt{top:5px;background-color: rgba(171, 180, 55,.15);}
+#energyAudit{top:130px;background-color: rgba(245, 147, 34,.15);}
+#buildingComm{top:255px;background-color: rgba(0, 146, 160,.15);}
+#buildingOps{top:380px;background-color: rgba(173, 77, 106,.15);}
+
+#mapHeaders{
+    width:100%;
+    float:left;
+    height:24px;
+    
+    font-weight:bold;
+    font-size:12px;
+    line-height:12px;
+    text-align:center;
+}
+#mapHeaders ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+#mapHeaders li{
+    margin: 0;
+    display: inline;
+    float:left;
+}
+#mapHeaders li:first-child
+{
+    width:150px;
+    text-align:left;
+}
+#mapHeaders li:nth-child(2)
+{
+    width:233px;    
+}
+#mapHeaders li:nth-child(3)
+{
+    width:258px;
+}
+#mapHeaders li:nth-child(4)
+{
+    width:258px;
+}
+#mapReturn {
+    cursor: pointer;
+    font-size: 10px;
+    margin-top: 55px;
+    text-align: center;
+}
+#certLearnMore{
+  clear:left;  
+  cursor: pointer;
+    font-size: 10px;
+    text-align: center;
+    padding:5px;
+}
+.scroll{
+    overflow-y: auto;
+    width:100%;
+    max-height:150px;
+}
+
+
+/**
+ * 11.6 - Footer
+ */
+
+.site-footer {
+    padding: 0;
+    background: #5a5a5a;
+    color: #fafafa;
+    min-height: 100px;
+    width: 100%;
+    bottom: 0px;
+    font-size: 11px;
+    line-height: 21px;
+    margin-bottom: 0px;
+    border-top: 10px solid #e9eaee;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+.site-info {
+    color: #686868;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    line-height: 1.6153846154;
+}
+
+/* Widget styles */
+
+.widget {
+    border-top: none;
+    margin-bottom: 3.5em;
+    padding-top: 0.8em;
+}
+
+.widget-area {
+    width: 100%;
+}
+
+.widget-area > :last-child, .widget > :last-child, .widget > nav > :last-child {
+    margin-bottom: 0;
+}
+
+
+/* responsive style elements */
+
+/**
+ * 14.1 - >= 710px
+ */
+@media screen and (min-width: 44.375em) {
+    html {
+        scroll-padding-top: calc( var(--wp-admin--admin-bar--height, 0px) + 21px );
+    }
+
+    body:not(.custom-background-image):before,
+    body:not(.custom-background-image):after {
+        background: inherit;
+        content: "";
+        display: block;
+        height: 0;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 99;
+    }
+
+    .entry-header,
+    .post-thumbnail,
+    .entry-content,
+    .entry-summary,
+    .entry-footer,
+    .comments-area,
+    .image-navigation,
+    .post-navigation,
+    .page-header,
+    .page-content,
+    .content-bottom-widgets {
+        margin-right: 4%;
+        margin-left: 4%;
+    }
+    .entry-content ul,
+    .entry-summary ul,
+    .comment-content ul,
+    .entry-content ol,
+    .entry-summary ol,
+    .comment-content ol {
+        margin-left: 1em;
+    }
+}
+
+
+/**
+ * 14.2 - >= 783px
+ */
+
+@media screen and (min-width: 48.9375em) {
+    body:not(.custom-background-image).admin-bar:before {
+        top: 32px;
+    }
+    .entry-content h4,
+    .entry-content h5,
+    .entry-content h6,
+    .entry-summary h4,
+    .entry-summary h5,
+    .entry-summary h6,
+    .comment-content h4,
+    .comment-content h5,
+    .comment-content h6 {
+        font-size: 16px;
+        font-size: 1.15em;
+        line-height: 1.15;
+        margin-top: 1.5em;
+        margin-bottom: 1.15em;
+    }
+}
+
+
+/**
+ * 14.3 - >= 910px
+ */
+
+@media screen and (min-width: 56.875em) {
+    .site-header {
+        padding-right: 4.5455%;
+        padding-left: 4.5455%;
+    }
+    .entry-content h4,
+    .entry-content h5,
+    .entry-content h6,
+    .entry-summary h4,
+    .entry-summary h5,
+    .entry-summary h6,
+    .comment-content h4,
+    .comment-content h5,
+    .comment-content h6 {
+        font-size: 16px;
+        font-size: 1.15em;
+        line-height: 1.2;
+        margin-top: 1.6em;
+        margin-bottom: 1.25em;
+    }
+}
+/**
+ * 14.4 - >= 985px
+ */
+
+@media screen and (min-width: 61.5625em) {
+    .entry-content h3,
+    .entry-summary h3,
+    .comment-content h3 {
+        font-size: 1rem;
+        line-height: 1.5;
+        font-weight: 700;
+    }
+    .entry-content h4,
+    .entry-content h5,
+    .entry-content h6,
+    .entry-summary h4,
+    .entry-summary h5,
+    .entry-summary h6,
+    .comment-content h4,
+    .comment-content h5,
+    .comment-content h6 {
+        font-size: 18px;
+        font-size: 1.25em;
+        line-height: 1.25;
+        margin-top: 1.8em;
+        margin-bottom: 1.35em;
+    }
+
+    .entry-content h4,
+    .entry-summary h4,
+    .entry-intro h4,
+    .comment-content h4 {
+        letter-spacing: 0.05em;
+    }
+}
