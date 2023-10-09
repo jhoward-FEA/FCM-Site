@@ -21,150 +21,47 @@
 	<?php wp_enqueue_script("jquery"); ?>
 
 	<?php wp_head(); ?>
-	
-	<script src="https://code.createjs.com/easeljs-0.8.0.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-		<script type="application/javascript">
-      function draw() {
-		  const canvas = document.getElementById("careerMap");
-		  const ctx = canvas.getContext("2d");
-
-		  // Define background colors and padding
-		  const colors = ["#E3F6F3", "#FCEEB5", "#FFF6CC", "#FFCCB6"];
-		  const padding = 1;
-		  const stripHeight = (canvas.height - 2 * padding) / colors.length;
-
-		  // Draw background strips and dots
-		  for (let i = 0; i < colors.length; i++) {
-		    const startY = padding + i * stripHeight;
-		    const endY = startY + stripHeight;
-
-		    // Draw background strip
-		    ctx.fillStyle = colors[i];
-		    ctx.fillRect(0, startY, canvas.width, stripHeight);
-
-		    // Draw dots
-		    const dotSize = 5;
-		    const dotSpacing = 20;
-		    const dotColor = darkenColor(colors[i], 0.2);
-		    const dotCoordinates = [  [50, 50],
-		    	[100, 100],
-			  	[150, 150]
-			  	// add more coordinates as needed
-				];
-				for (let j = 0; j < dotCoordinates.length; j++) {
-					const [x, y] = dotCoordinates[j];
-					drawCircle(ctx, x, y, dotSize, dotColor);
-				}
-
-		  // Add hover effect to dots
-		  canvas.addEventListener("mousemove", (e) => {
-		    const mouseX = e.clientX - canvas.offsetLeft;
-		    const mouseY = e.clientY - canvas.offsetTop;
-
-		    for (let i = 0; i < colors.length; i++) {
-		      const startY = padding + i * stripHeight;
-		      const endY = startY + stripHeight;
-
-		      for (let x = dotSpacing; x < canvas.width - dotSpacing; x += dotSpacing) {
-		        const y = startY + stripHeight / 2;
-		        const dist = Math.sqrt((mouseX - x) ** 2 + (mouseY - y) ** 2);
-
-		        if (dist < dotSize + 10) {
-		          drawCircle(ctx, x, y, dotSize + 2, "white", "rgba(255, 255, 255, 0.5)");
-		        } else {
-		          const dotColor = darkenColor(colors[i], 0.2);
-		          drawCircle(ctx, x, y, dotSize, dotColor);
-		        }
-		      }
-		    }
-		  });
-		}
-
-		// Helper function to draw a circle
-		function drawCircle(ctx, x, y, radius, fillColor, strokeColor) {
-		  ctx.beginPath();
-		  ctx.arc(x, y, radius, 0, Math.PI * 2);
-		  ctx.fillStyle = fillColor;
-		  ctx.fill();
-		  ctx.strokeStyle = strokeColor || "transparent";
-		  ctx.stroke();
-		}
-
-		// Helper function to darken a color by a given percentage
-		function darkenColor(color, percentage) {
-		  const factor = 1 - percentage;
-		  return (
-		    "#" +
-		    color
-		      .slice(1)
-		      .match(/.{2}/g)
-		      .map((c) => Math.floor(parseInt(c, 16) * factor))
-		      .map((c) => c.toString(16).padStart(2, "0"))
-		      .join("")
-		  );
-		}
-
-
-    </script>
-
-	<script type="text/javascript" id="" src="/wp-content/themes/twentysixteen-child/scripts/canvas_config.js"></script>
-	<script type="text/javascript" id="" src="/wp-content/themes/twentysixteen-child/scripts/careerFunctions.js"></script>
-	<script type="text/javascript" id="" src="/wp-content/themes/twentysixteen-child/scripts/careerProfileFunctions.js"></script>
-	<script type="text/javascript" id="" src="/wp-content/themes/twentysixteen-child/scripts/edPointFunctions.js"></script>
-
-	<script>jQuery(document).ready(function (){ init(); });</script>
-	<script>jQuery(document).ready(function (){ initEdPoints(); });</script>
-	<script>jQuery(document).ready(function (){ initProfile(); });</script>
-
 	<style>
-		@import url("/wp-content/themes/twentysixteen-child/css/system.base.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/system.menus.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/system.messages.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/system.theme.css");
-
-		@import url("/wp-content/themes/twentysixteen-child/css/canvasStyles.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/careerProfile.styles.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/comment.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/field.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/node.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/search.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/user.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/extlink.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/views.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/ckeditor.css");
-
-		@import url("/wp-content/themes/twentysixteen-child/css/ctools.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/lightbox.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/at.layout.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/global.base.css");
-		@import url("/wp-content/themes/twentysixteen-child/css/global.styles.css");
-
-	</style>
-
-	<link type="text/css" rel="stylesheet" href="/wp-content/themes/twentysixteen-child/css/careermap.responsive.layout.css" media="only screen" />
-	<link type="text/css" rel="stylesheet" href="/wp-content/themes/twentysixteen-child/css/responsive.custom.css" media="only screen" />
-	<link type="text/css" rel="stylesheet" href="/wp-content/themes/twentysixteen-child/css/responsive.smalltouch.portrait.css" media="only screen and (max-width:320px)" />
-	<link type="text/css" rel="stylesheet" href="/wp-content/themes/twentysixteen-child/css/responsive.smalltouch.landscape.css" media="only screen and (min-width:321px) and (max-width:580px)" />
-	<link type="text/css" rel="stylesheet" href="/wp-content/themes/twentysixteen-child/css/responsive.tablet.portrait.css" media="only screen and (min-width:581px) and (max-width:768px)" />
-	<link type="text/css" rel="stylesheet" href="/wp-content/themes/twentysixteen-child/css/responsive.tablet.landscape.css" media="only screen and (min-width:769px) and (max-width:1024px)" />
-	<link type="text/css" rel="stylesheet" href="/wp-content/themes/twentysixteen-child/css/responsive.desktop.css" media="only screen and (min-width:1025px)" />
-
-	<script src="/wp-content/themes/twentysixteen-child/scripts/jquery.js"></script>
-	<script src="/wp-content/themes/twentysixteen-child/scripts/jquery.once.js"></script>
-	<script src="/wp-content/themes/twentysixteen-child/scripts/extlink.js"></script>
-	<script src="/wp-content/themes/twentysixteen-child/scripts/lightbox_video.js"></script>
-	<script src="/wp-content/themes/twentysixteen-child/scripts/lightbox.js"></script>
-	
-	<script src="https://code.createjs.com/easeljs-0.8.0.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-	<script src="/wp-content/themes/twentysixteen-child/scripts/canvas_config.js"></script>
-	<script src="/wp-content/themes/twentysixteen-child/scripts/careerFunctions.js"></script>
-	<script src="/wp-content/themes/twentysixteen-child/scripts/edPointFunctions.js"></script>
-	<script src="/wp-content/themes/twentysixteen-child/scripts/careerProfileFunctions.js"></script>
-	<script src="/wp-content/themes/twentysixteen-child/scripts/html5.js"></script>
+      text {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+      text.node-title {
+        font-weight: bold;
+        opacity: 0.0;
+        pointer-events: none;
+        text-shadow: 2px -2px 2px rgba(255, 255, 255, 0.5);
+      }
+      .fade-in {
+        transition: opacity 200ms ease-in;
+      }
+      .fade-out {
+        transition: opacity 500ms ease-out;
+      }
+      .highlights {
+        opacity: 0;
+      }
+      #sidebarText p:empty {
+        grid-area: sidebarText;
+        display: none;
+      }
+      .job {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+      .active-path {
+        opacity: 1 !important;
+      }
+      .map-overlay {
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 965px;
+		    height: 630px;
+		    margin: 52px 120px;
+		    background: transparent;
+		    display: none;
+		  }
+    </style>
 
 </head>
 
@@ -254,4 +151,4 @@
 			</div><!-- .site-header-main -->
 		</header><!-- .site-header -->
 
-		<div id="content" class="site-content">
+		<div id="content" class="site-content" style="margin: auto;">
