@@ -167,7 +167,6 @@
       jobTrainingElement.innerHTML = null;
       degreeOverviewElement.innerHTML = null;
       degreeOccupationsElement.innerHTML = null;
-      certPane.innerHTML = null;
       certDeets.innerHTML = null;
       certTasks.innerHTML = null;
       certKeys.innerHTML = null;
@@ -320,6 +319,9 @@
         // Conditional for filter elements
         if (jobId === "vet-icon" || jobId === "trades-icon" || jobId === "grads-icon" || jobId === "energyProfs-icon" || jobId === "fed-icon") {
           // Clear previous content
+
+          titleElement.innerHTML = null;
+          certPane.innerHTML = null;
           jobSummaryElement.innerHTML = null;
           jobTitlesElement.innerHTML = null;
           jobTrainingElement.innerHTML = null;
@@ -389,13 +391,17 @@
         jobTrainingElement.innerHTML = null;
         degreeOverviewElement.innerHTML = null;
         degreeOccupationsElement.innerHTML = null;
-        certComp.innerHTML = null;
-        certDeets.innerHTML = null;
-        certTasks.innerHTML = null;
-        certKeys.innerHTML = null;
-        certProfile.innerHTML = null;
         bannerImageSrc = null;
         jobLinkElement.innerHTML = null;
+
+        // Clear the previous active path elements
+        activePathElements.forEach(activePathId => {
+          const activePathElementsToClear = document.querySelectorAll(`.${activePathId}`);
+          activePathElementsToClear.forEach(path => {
+            path.classList.remove("active-path");
+            path.style.opacity = "0"; // Set opacity to 0
+          });
+        });
         
         // Set Title
         titleElement.innerHTML = `${activeBadge["Job Title"]}`
