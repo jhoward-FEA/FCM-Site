@@ -24,6 +24,9 @@
 #   this version ignores all files by default
 # -----------------------------------------------------------------
 
+# ignore specific files (working files)
+/themes/twentysixteen-child/temp-working version.php
+
 # ignore all mu-plugins, plugins, and themes
 # unless explicitly whitelisted at the end of this file
 mu-plugins/*
