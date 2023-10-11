@@ -201,7 +201,7 @@
         <!-- Superintendent to Building Operations Professional -->
         <line class="highlights track4 track6 track7 path16 path31 path32 path33 path34 path35 path36" x1="355" y1="610" x2="480" y2="550" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
         <!-- Building Operations Professional to Senior Manager of Operations -->
-        <line class="highlights track4 track5 track6 track7 track9 path1 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path32" x1="480" y1="550" x2="635" y2="515" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
+        <line class="highlights track4 track5 track6 track7 track9 path1 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path32" x1="480" y1="550" x2="650" y2="515" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
         <!-- Building Operations Professional to Chief Building Engineer -->
         <line class="highlights track4 track5 track6 track7 track9 path1 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path33" x1="480" y1="550" x2="650" y2="585" stroke="#666" stroke-width="5" stroke-opacity="0.5" />
         <!-- Building Operations Professional to Chief Engineer (Federal O&M Contractor) -->
@@ -285,7 +285,7 @@
         <!-- Superintendent -->
         <circle class="highlights track4 track6 track7 path16 path31 path32 path33 path34 path35 path36" cx="355" cy="610" r="12" fill="#666" /> 
         <!-- Senior Manager of Operations -->
-        <circle class="highlights track4 track5 track6 track7 track9 path1 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path32" cx="635" cy="515" r="12" fill="#666" /> 
+        <circle class="highlights track4 track5 track6 track7 track9 path1 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path32" cx="650" cy="515" r="12" fill="#666" /> 
         <!-- Chief Building Engineer -->
         <circle class="highlights track4 track5 track6 track7 track9 path1 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path33" cx="650" cy="585" r="12" fill="#666" /> 
         <!-- Chief Engineer (Federal O&M Contractor) -->
@@ -368,7 +368,7 @@
         <!-- Superintendent -->
         <circle id="job31" class="fade-in fade-out not1 not2 not3" cx="355" cy="610" r="8" fill="#ac4c6a" />
         <!-- Senior Manager of Operations -->
-        <circle id="job32" class="fade-in fade-out not1 not2 not3" cx="635" cy="515" r="8" fill="#ac4c6a" />
+        <circle id="job32" class="fade-in fade-out not1 not2 not3" cx="650" cy="515" r="8" fill="#ac4c6a" />
         <!-- Chief Building Engineer -->
         <circle id="job33" class="fade-in fade-out not1 not2 not3" cx="650" cy="585" r="8" fill="#ac4c6a" />
         <!-- Chief Engineer (Federal O&M Contractor) -->
@@ -419,7 +419,7 @@
         <text class="node-title track4 track6 track7 track9 path1 path28 path29 path32 path33 path34 path35 path36" text-anchor="middle" x="325" y="543">Federal Facility Manager</text>
         <text class="node-title track4 track5 track6 track7 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path30 path32 path33 path34 path35 path36" text-anchor="middle" x="345" y="503">Building Engineer</text>
         <text class="node-title track4 track6 track7 path16 path31 path32 path33 path34 path35 path36" text-anchor="middle" x="355" y="593">Superintendent</text>
-        <text class="node-title track4 track5 track6 track7 track9 path1 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path32" text-anchor="middle" x="635" y="498">Senior Manager of Operations</text>
+        <text class="node-title track4 track5 track6 track7 track9 path1 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path32" text-anchor="middle" x="650" y="498">Senior Manager of Operations</text>
         <text class="node-title track4 track5 track6 track7 track9 path1 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path33" text-anchor="middle" x="650" y="568">Chief Building Engineer</text>
         <text class="node-title track4 track5 track6 track7 track9 path1 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path34" text-anchor="middle" x="770" y="543">Chief Engineer (Federal O&M Contractor)</text>
         <text class="node-title track4 track5 track6 track7 track9 path1 path8 path9 path10 path16 path23 path24 path25 path26 path27 path28 path29 path30 path31 path35" text-anchor="middle" x="870" y="488">Regional Facility Manager</text>

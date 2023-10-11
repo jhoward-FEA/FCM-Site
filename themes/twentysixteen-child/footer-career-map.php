@@ -321,23 +321,12 @@
           // Clear previous content
 
           titleElement.innerHTML = null;
-          certPane.innerHTML = null;
           jobSummaryElement.innerHTML = null;
           jobTitlesElement.innerHTML = null;
           jobTrainingElement.innerHTML = null;
           degreeOverviewElement.innerHTML = null;
           degreeOccupationsElement.innerHTML = null;
           jobLinkElement.innerHTML = null;
-          paneDeets.innerHTML = null;
-          paneTasks.innerHTML = null;
-          paneKeys.innerHTML = null;
-          paneComp.innerHTML = null;
-          paneProfile.innerHTML = null;
-          certDeets.innerHTML = null;
-          certTasks.innerHTML = null;
-          certKeys.innerHTML = null;
-          certComp.innerHTML = null;
-          certProfile.innerHTML = null;
           // Set summary to default
           jobSummaryElement.innerHTML = defaultContent;
         }
