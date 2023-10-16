@@ -99,6 +99,7 @@
 			<div class="site-header-main">
 				<!-- <div class="site-branding"> -->
 					<?php twentysixteen_the_custom_logo(); ?>
+					<a href="https://www.feapc.com" target="_blank"><figure class="fea-logo wp-block-image alignright size-large"><img src="http://fcm/wp-content/uploads/FEA-logo-fullcolor.png" alt="FEA logo" class="wp-image-269" width="256" height="105" /></figure></a>
 
 					<?php if ( is_front_page() && is_home() ) : ?>
 						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>

@@ -90,19 +90,19 @@
   // badge containers and text
   const certPane = document.getElementById('cert-info');
   const paneDeets = document.getElementById('deets-pane');
-  const paneTasks = document.getElementById('task-pane');
+  // const paneTasks = document.getElementById('task-pane');
   const paneKeys = document.getElementById('keys-pane');
   const paneComp = document.getElementById('comp-pane');
   const paneProfile = document.getElementById('profile-pane');
   const certDeets = document.getElementById('deets');
-  const certTasks = document.getElementById('task');
+  // const certTasks = document.getElementById('task');
   const certKeys = document.getElementById('keys');
   const certComp = document.getElementById('comp');
   const certProfile = document.getElementById('profile');
 
   const defaultContent = `
-  <a href="http://www.youtube.com/watch?v=LzGsm8774v4" rel="lightvideo">Video: Intro to the Career Map</a><br/>
-  <a href="https://www.youtube.com/watch?v=DO87DvGxN00" rel="lightvideo">Video: Using the Career Map</a><br/><br/>
+  <a href="https://www.youtube.com/watch?v=LzGsm8774v4" rel="lightvideo" target="_blank">Video: Intro to the Career Map</a><br/>
+  <a href="https://www.youtube.com/watch?v=DO87DvGxN00" rel="lightvideo" target="_blank">Video: Using the Career Map</a><br/><br/>
   This Career Map tool highlights emerging professional-level standards that are part of the Department of Energy’s Better Buildings Workforce Guidelines (BBWG). The map articulates clear pathways for advancement for incumbent workers as well as the identification of strategic entry points for veterans in building trades professionals, graduates, and other job seekers.
   <br/><br/>
   The entry points on the left are strategic entry points identified as jobs that are good precursors or transition jobs to the four main BBWG jobs. The right side of the map shows specializations to strive for and what career advancements are possible. Hover over points to see the pathways and click on a point to see basic job data.
@@ -168,7 +168,7 @@
       degreeOverviewElement.innerHTML = null;
       degreeOccupationsElement.innerHTML = null;
       certDeets.innerHTML = null;
-      certTasks.innerHTML = null;
+      // certTasks.innerHTML = null;
       certKeys.innerHTML = null;
       certComp.innerHTML = null;
       certProfile.innerHTML = null;
@@ -220,15 +220,15 @@
           sidebarText.style.backgroundColor = "#eff0da";
           break;
         case "orange":
-          bannerImageSrc = "http://fcm/wp-content/uploads/info-banner-2.png";
+          bannerImageSrc = "http://fcm/wp-content/uploads/info-banner-orange.png";
           sidebarText.style.backgroundColor = "#faebda";
           break;
         case "blue":
-          bannerImageSrc = "http://fcm/wp-content/uploads/info-banner-3.png";
+          bannerImageSrc = "http://fcm/wp-content/uploads/info-banner-blue.png";
           sidebarText.style.backgroundColor = "#d5ebed";
           break;
         case "maroon":
-          bannerImageSrc = "http://fcm/wp-content/uploads/info-banner-4.png";
+          bannerImageSrc = "http://fcm/wp-content/uploads/info-banner-maroon.png";
           sidebarText.style.backgroundColor = "#efe1e5";
           break;
         default:
@@ -320,14 +320,14 @@
         if (jobId === "vet-icon" || jobId === "trades-icon" || jobId === "grads-icon" || jobId === "energyProfs-icon" || jobId === "fed-icon") {
           // Clear previous content
 
-          titleElement.innerHTML = null;
           jobSummaryElement.innerHTML = null;
           jobTitlesElement.innerHTML = null;
           jobTrainingElement.innerHTML = null;
           degreeOverviewElement.innerHTML = null;
           degreeOccupationsElement.innerHTML = null;
           jobLinkElement.innerHTML = null;
-          // Set summary to default
+          // Set summary & title to default
+          titleElement.innerHTML = "Career Mapping Tool";
           jobSummaryElement.innerHTML = defaultContent;
         }
 
@@ -401,9 +401,21 @@
         // Set inner HTML elements
         certKeys.innerHTML = `${activeBadge["Keys to Success"]}`
         certDeets.innerHTML = `${activeBadge["Job Details"]}`
-        certTasks.innerHTML = `${activeBadge["Job Task Analysis"]}`
+        // certTasks.innerHTML = `${activeBadge["Job Task Analysis"]}`
         certComp.innerHTML = `${activeBadge["Competency Model"]}`
-        certProfile.innerHTML = `${activeBadge["Career Profile"]}`
+        certProfile.innerHTML = `${activeBadge["Career Profiles"]}`
+
+        const detailsElements = document.querySelectorAll('details');
+
+        detailsElements.forEach(function(detailsElement) {
+          detailsElement.addEventListener('click', function() {
+            detailsElements.forEach(function(otherDetailsElement) {
+              if (otherDetailsElement !== detailsElement) {
+                otherDetailsElement.removeAttribute('open');
+              }
+            });
+          });
+        });
 
         // bgColor = activeNode["Background Color"];
         const sidebarText = document.getElementById("sidebarText");
@@ -483,7 +495,8 @@
           console.log("Added Event Listeners");
           // Default to white background
           sidebarText.style.backgroundColor = "rgba(255, 255, 255, 1)";
-          // Set summary to default
+          // Set summary & title to default
+          titleElement.innerHTML = "Career Mapping Tool";
           jobSummaryElement.innerHTML = defaultContent;
           // set cert pane to display: none
           certPane.style.display = "none";
@@ -521,9 +534,9 @@
       "Link": "/b-s-mechanical-eng/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "green"
     },
     {
@@ -537,9 +550,9 @@
       "Link": "/energy-engineer/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "green"
     },
     {
@@ -553,9 +566,9 @@
       "Link": "/federal-energy-engineer/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "green"
     },
     {
@@ -569,9 +582,9 @@
       "Link": "/sustainability-specialist/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "green"
     },
     {
@@ -585,9 +598,9 @@
       "Link": "/chief-sustainability-officer/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "green"
     },
     {
@@ -601,9 +614,9 @@
       "Link": "/regional-energy-manager/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "green"
     },
     {
@@ -617,9 +630,9 @@
       "Link": "/ceo-owner-of-energy-firm/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "green"
     },
     {
@@ -633,9 +646,9 @@
       "Link": "/hvac-technician/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "orange"
     },
     {
@@ -649,9 +662,9 @@
       "Link": "/air-force-hvacr/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "orange"
     },
     {
@@ -673,9 +686,9 @@
       "Link": "/b-s-hvac-tech/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "orange"
     },
     {
@@ -689,9 +702,9 @@
       "Link": "/construction-and-building-inspector/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "orange"
     },
     {
@@ -705,9 +718,9 @@
       "Link": "/residential-energy-assessor/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "orange"
     },
     {
@@ -721,9 +734,9 @@
       "Link": "/energy-consultant/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "orange"
     },
     {
@@ -737,9 +750,9 @@
       "Link": "/senior-energy-auditor/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "orange"
     },
     {
@@ -753,9 +766,9 @@
       "Link": "/senior-technical-specialist/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "orange"
     },
     {
@@ -778,9 +791,9 @@
       "Link": "/a-s-hvac-tech/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "blue"
     },
     {
@@ -794,9 +807,9 @@
       "Link": "/sheet-metal-worker/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "blue"
     },
     {
@@ -814,9 +827,9 @@
       "Link": "/b-s-building-automation-tech/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "blue"
     },
     {
@@ -830,9 +843,9 @@
       "Link": "/commissioning-technician/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "blue"
     },
     {
@@ -846,9 +859,9 @@
       "Link": "/controls-technician/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "blue"
     },
     {
@@ -862,9 +875,9 @@
       "Link": "/senior-commissioning-manager/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "blue"
     },
     {
@@ -878,9 +891,9 @@
       "Link": "/president-of-commissioning-firm/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "blue"
     },
     {
@@ -894,9 +907,9 @@
       "Link": "/electrician/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -916,9 +929,9 @@
       "Link": "/a-s-building-maint-tech/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -941,9 +954,9 @@
       "Link": "/a-s-electro-mech-maint-tech/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -957,9 +970,9 @@
       "Link": "/navy-ut-utilitiesman/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -973,9 +986,9 @@
       "Link": "/maintenance-technician/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -989,9 +1002,9 @@
       "Link": "/federal-facility-specialist/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -1005,9 +1018,9 @@
       "Link": "/federal-facility-manager/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -1021,9 +1034,9 @@
       "Link": "/building-engineer/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -1037,9 +1050,9 @@
       "Link": "/superintendent/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -1053,9 +1066,9 @@
       "Link": "/senior-manager-of-operations/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -1069,9 +1082,9 @@
       "Link": "/chief-building-engineer/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -1085,9 +1098,9 @@
       "Link": "/chief-engineer-federal-om-contractor/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -1101,9 +1114,9 @@
       "Link": "/regional-facility-manager/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -1117,9 +1130,9 @@
       "Link": "/director-of-maintenance/",
       "Keys to Success": null,
       "Job Details": null,
-      "Job Task Analysis": null,
+      // "Job Task Analysis": null,
       "Competency Model": null,
-      "Career Profile": null,
+      "Career Profiles": null,
       "Background Color": "maroon"
     },
     {
@@ -1131,11 +1144,11 @@
       "Degree Overview": "",
       "Potential Occupations": null,
       "Link": null,
-      "Keys to Success": `<p><a href="#">Return to Map</a></p><details open="open"><summary id="keysToSuccess">Keys to Success</summary><ul class="cert-list"><li>Stays actively current of industry trends and directions;</li><li>Demonstrates all benefits of energy efficiency;</li><li>Possesses technical competencies to gather and assess appropriate information;</li><li>Possesses foundational competencies in engineering;</li><li>Applies analytical decision-making process to include both financial goals and energy saving goals;</li><li>Develops practical solutions beyond energy consumption.</li><li>Ensures that all key stakeholders are properly informed.</li><li>Applies systems thinking when identifying appropriate solutions and/or troubleshooting.</li><li>Informs and educates stakeholders as a means to change behavior.</li><li>Effectively influences others to achieve goals.</li></ul></details>`,
+      "Keys to Success": `<!--<p><a href="#">Return to Map</a></p>--><details open=""><summary id="keysToSuccess">Keys to Success</summary><ul class="cert-list"><li>Stays actively current of industry trends and directions;</li><li>Demonstrates all benefits of energy efficiency;</li><li>Possesses technical competencies to gather and assess appropriate information;</li><li>Possesses foundational competencies in engineering;</li><li>Applies analytical decision-making process to include both financial goals and energy saving goals;</li><li>Develops practical solutions beyond energy consumption.</li><li>Ensures that all key stakeholders are properly informed.</li><li>Applies systems thinking when identifying appropriate solutions and/or troubleshooting.</li><li>Informs and educates stakeholders as a means to change behavior.</li><li>Effectively influences others to achieve goals.</li></ul></details>`,
       "Job Details": `<details><summary id="jobDetail">Job Details</summary><p class="cert-text">Click a point on the mapping tool to see details.</p></details>`,
-      "Job Task Analysis": `<details><summary id="jobTask">Job Task Analysis</summary><p class="cert-text">&nbsp;</p></details>`,
+      // "Job Task Analysis": `<details><summary id="jobTask">Job Task Analysis</summary><p class="cert-text">&nbsp;</p></details>`,
       "Competency Model": `<details><summary id="compModel">Competency Model</summary><p class="cert-text">A competency model is a tool that maps competencies in a hierarchical manner. Through analysis of the JTAs, the Advanced Commercial Building Workforce competency model was created. To view the Competency Model for ACBW, click on the following link:<br><a href="http://www.careeronestop.org/CompetencyModel/competency-models/Advanced-Commercial.aspx" target="_blank">Energy: Advanced Commercial Buildings Competency Model</a></p></details>`,
-      "Career Profile": `<details><summary id="careerProfile">Career Profile</summary><p class="cert-text">&nbsp;</p></details><a href="/certification/building-energy-manager/"><div id="certLearnMore">Click here to learn more about the <em>Building Energy Manager</em> Certification</div></a>`,
+      "Career Profiles": `<!--<details><summary id="careerProfile">Career Profiles</summary><p class="cert-text">&nbsp;</p></details>--><a href="/certification/building-energy-manager/"><div id="certLearnMore">Click here to learn more about the <em>Building Energy Manager</em> Certification</div></a>`,
       "Background Color": "green"
     },
     {
@@ -1147,11 +1160,11 @@
       "Degree Overview": "",
       "Potential Occupations": null,
       "Link": null,
-      "Keys to Success": `<p><a href="#">Return to Map</a></p><details open="open"><summary id="keysToSuccess">Keys to Success</summary><ul class="cert-list"><li>Focuses on customer service/client satisfaction.</li><li>Approaches projects collaboratively (works with the client).</li><li>Possesses technical-competencies to gather appropriate information.</li><li>Applies analytical decision-making process to include both financial goals and energy saving goals.</li><li>Methodically collects data while considering the entire system to solve problems.</li><li>Develops practical solutions beyond merely energy consumption.</li><li>Communicates effectively with key stakeholders.</li><li>Delivers objective reports that are: realistic, credible and verifiable.</li><li>Considers the clients goals and needs.</li></ul></details>`,
+      "Keys to Success": `<!--<p><a href="#">Return to Map</a></p>--><details open=""><summary id="keysToSuccess">Keys to Success</summary><ul class="cert-list"><li>Focuses on customer service/client satisfaction.</li><li>Approaches projects collaboratively (works with the client).</li><li>Possesses technical-competencies to gather appropriate information.</li><li>Applies analytical decision-making process to include both financial goals and energy saving goals.</li><li>Methodically collects data while considering the entire system to solve problems.</li><li>Develops practical solutions beyond merely energy consumption.</li><li>Communicates effectively with key stakeholders.</li><li>Delivers objective reports that are: realistic, credible and verifiable.</li><li>Considers the clients goals and needs.</li></ul></details>`,
       "Job Details": `<details><summary id="jobDetail">Job Details</summary><p class="cert-text">Click a point on the mapping tool to see details.</p></details>`,
-      "Job Task Analysis": `<details><summary id="jobTask">Job Task Analysis</summary><p class="cert-text">&nbsp;</p></details>`,
+      // "Job Task Analysis": `<details><summary id="jobTask">Job Task Analysis</summary><p class="cert-text">&nbsp;</p></details>`,
       "Competency Model": `<details><summary id="compModel">Competency Model</summary><p class="cert-text">A competency model is a tool that maps competencies in a hierarchical manner. Through analysis of the JTAs, the Advanced Commercial Building Workforce competency model was created. To view the Competency Model for ACBW, click on the following link:<br><a href="http://www.careeronestop.org/CompetencyModel/competency-models/Advanced-Commercial.aspx" target="_blank">Energy: Advanced Commercial Buildings Competency Model</a></p></details>`,
-      "Career Profile": `<details><summary id="careerProfile">Career Profile</summary><a href="/principal-president/"><p class="cert-text">
+      "Career Profiles": `<details><summary id="careerProfile">Career Profiles</summary><a href="/career-profiles/principal-president/"><p class="cert-text">
       <img src="http://fcm/wp-content/uploads/JohnDunlapPhoto.png" alt="John F. Dunlop" width="76" height="100">
       Principal/President<br><br>Learn More!</p></a></details><a href="/certification/building-energy-auditor/"><div id="certLearnMore">Click here to learn more about the <em>Building Energy Auditor</em> Certification</div></a>`,
       "Background Color": "orange"
@@ -1165,11 +1178,15 @@
       "Degree Overview": "",
       "Potential Occupations": null,
       "Link": null,
-      "Keys to Success": `<p><a href="#">Return to Map</a></p><details open="open"><summary id="keysToSuccess">Keys to Success</summary>`,
-      "Job Details": `<summary id="jobDetail">Job Details</summary><p>Click a point on the mapping tool to see details.</p></details>`,
-      "Job Task Analysis": `<details><summary id="jobTask">Job Task Analysis</summary><p class="cert-text">&nbsp;</p></details>`,
+      "Keys to Success": `<!--<p><a href="#">Return to Map</a></p>--><details open=""><summary id="keysToSuccess">Keys to Success</summary><ul class="cert-list"><li>Possesses technical-competencies to gather and assess appropriate information</li><li>Possesses foundational-competencies in engineering</li><li>Communicates effectively with key stakeholders</li><li>Effectively manages teams and projects</li><li>Approaches projects collaboratively (works with the client)</li><li>Applies analytical decision-making process to include both financial goals and energy saving goals.</li><li>Develops practical solutions beyond the energy consumption</li><li>Effectively influences others to achieve goals</li><li>Applies systems thinking when identifying appropriate solutions and/or troubleshooting</li></ul></details>`,
+      "Job Details": `<details><summary id="jobDetail">Job Details</summary><p class="cert-text">Click a point on the mapping tool to see details.</p></details>`,
+      // "Job Task Analysis": `<details><summary id="jobTask">Job Task Analysis</summary><p class="cert-text">&nbsp;</p></details>`,
       "Competency Model": `<details><summary id="compModel">Competency Model</summary><p class="cert-text">A competency model is a tool that maps competencies in a hierarchical manner. Through analysis of the JTAs, the Advanced Commercial Building Workforce competency model was created. To view the Competency Model for ACBW, click on the following link:<br><a href="http://www.careeronestop.org/CompetencyModel/competency-models/Advanced-Commercial.aspx" target="_blank">Energy: Advanced Commercial Buildings Competency Model</a></p></details>`,
-      "Career Profile": `<details><summary id="careerProfile">Career Profile</summary><p class="cert-text">&nbsp;</p></details><a href="/certification/building-commissioning-professional/"><div id="certLearnMore">Click here to learn more about the <em>Building Commissioning Professional</em> Certification</div></a>`,
+      "Career Profiles": `<details><summary id="careerProfile">Career Profiles</summary><a href="/career-profiles/president/"><p class="cert-text">
+      <img src="http://fcm/wp-content/uploads/JoeHelmPhoto.png" alt="W. Joseph Helm" width="76" height="100">
+      President<br><br>Learn More!</p></a><hr><a href="/career-profiles/vice-president/"><p class="cert-text">
+      <img src="http://fcm/wp-content/uploads/PhotoVillani.jpg" alt="John D. Villani" width="76" height="100">
+      Vice President<br><br>Learn More!</p></a></details><a href="/certification/building-commissioning-professional/"><div id="certLearnMore">Click here to learn more about the <em>Building Commissioning Professional</em> Certification</div></a>`,
       "Background Color": "blue"
     },
     {
@@ -1181,11 +1198,15 @@
       "Degree Overview": "",
       "Potential Occupations": null,
       "Link": null,
-      "Keys to Success": `<p><a href="#">Return to Map</a></p><details open="open"><summary id="keysToSuccess">Keys to Success</summary>`,
-      "Job Details": `<details><summary id="jobDetail">Job Details</summary><p>Click a point on the mapping tool to see details.</p></details>`,
-      "Job Task Analysis": `<details><summary id="jobTask">Job Task Analysis</summary><p class="cert-text">&nbsp;</p></details>`,
+      "Keys to Success": `<!--<p><a href="#">Return to Map</a></p>--><details open=""><summary id="keysToSuccess">Keys to Success</summary><ul class="cert-list"><li>Possesses the necessary technical competencies to gather appropriate information</li><li>Communicates effectively with key stakeholders</li><li>Focuses on Customer Service/ stakeholder satisfaction</li><li>Works collaboratively with all key stakeholders and ensures that everyone is properly informed</li><li>Applies systems thinking when identifying appropriate solutions and/or troubleshooting</li><li>Multitasks effectively and in a timely manner</li><li>Views everything from the lenses of "how can I improve the operations and the operational mission of the building's stakeholders"</li><li>Informs and educates stakeholders as a means to change behavior</li></ul></details>`,
+      "Job Details": `<details><summary id="jobDetail">Job Details</summary><p class="cert-text">Click a point on the mapping tool to see details.</p></details>`,
+      // "Job Task Analysis": `<details><summary id="jobTask">Job Task Analysis</summary><p class="cert-text">&nbsp;</p></details>`,
       "Competency Model": `<details><summary id="compModel">Competency Model</summary><p class="cert-text">A competency model is a tool that maps competencies in a hierarchical manner. Through analysis of the JTAs, the Advanced Commercial Building Workforce competency model was created. To view the Competency Model for ACBW, click on the following link:<br><a href="http://www.careeronestop.org/CompetencyModel/competency-models/Advanced-Commercial.aspx" target="_blank">Energy: Advanced Commercial Buildings Competency Model</a></p></details>`,
-      "Career Profile": `<details><summary id="careerProfile">Career Profile</summary><p class="cert-text">&nbsp;</p></details><a href="/certification/building-operations-professional/"><div id="certLearnMore">Click here to learn more about the <em>Building Operations Professional</em> Certification</div></a>`,
+      "Career Profiles": `<details><summary id="careerProfile">Career Profiles</summary><a href="/career-profiles/supervisory-facilities-operations-specialist/"><p class="cert-text">
+      <img src="http://fcm/wp-content/uploads/JeffBartlett.jpg" alt="Jeff Bartlett" width="76" height="100">
+      Supervisory Facilities Operations Specialist<br><br>Learn More!</p></a><hr><a href="/career-profiles/building-engineer/"><p class="cert-text">
+      <img src="http://fcm/wp-content/uploads/Teresa-Staff-Photo.jpg" alt="Theresa Rogers" width="76" height="100">
+      Building Engineer<br><br>Learn More!</p></a></details><a href="/certification/building-operations-professional/"><div id="certLearnMore">Click here to learn more about the <em>Building Operations Professional</em> Certification</div></a>`,
       "Background Color": "maroon"
     }
   ];
@@ -1199,6 +1220,21 @@
   toggleDisplayAndOpacity(areaElement7, targetElements7, notElement7, true);
   toggleDisplayAndOpacity(areaElement8, targetElements8, notElement8, true);
   toggleDisplayAndOpacity(areaElement9, targetElements9, notElement9, true);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const detailsElements = document.querySelectorAll('details');
+    console.log(detailsElements);
+    detailsElements.forEach(function(detailsElement) {
+      console.log(detailsElement);
+      detailsElement.addEventListener('click', function() {
+        detailsElements.forEach(function(otherDetailsElement) {
+          if (otherDetailsElement !== detailsElement) {
+            otherDetailsElement.removeAttribute('open');
+          }
+        });
+      });
+    });
+  });
 
 </script>
 </body>

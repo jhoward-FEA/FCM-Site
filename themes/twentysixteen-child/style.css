@@ -147,6 +147,12 @@ pre {
 	display: none;
 }
 
+.fea-logo {
+    position: absolute;
+    right: 80px;
+    width: 180px;
+}
+
 .site-inner {
 	max-width: none;
 	background-color: rgb(255, 255, 255);
@@ -296,8 +302,13 @@ footer a:hover, footer a:active {
 #comp-pane #comp {
     padding: 0;
 }
+#profile-pane {
+    height: 62px;
+}
 #profile-pane #profile {
+    margin: 0;
     padding: 0;
+    height: 57px;
 }
 
 .cert-table .cert-caption {
@@ -445,7 +456,7 @@ footer a:hover, footer a:active {
     height: 630px;
     position: relative;
     width: 248px;
-    padding: 60px 0 10px;
+    padding: 44px 0 10px;
     overflow: scroll;
 }
 
@@ -561,6 +572,7 @@ a #infoBannerText { /* for the certification text I think */
 
 #cert-info details img {
     float: left;
+    padding: 0 .5em;
 }
 
 #cert-info summary {
@@ -620,7 +632,7 @@ a #infoBannerText { /* for the certification text I think */
 
 #comp details {
     position: relative;
-    bottom: 57px;
+    bottom: 37px;
 }
 
 #careerProfile {
@@ -632,7 +644,7 @@ a #infoBannerText { /* for the certification text I think */
 
 #profile details {
     position: relative;
-    bottom: 76px;
+    bottom: 56px;
 }
 
 .cert-list {
@@ -641,9 +653,9 @@ a #infoBannerText { /* for the certification text I think */
     top: 5px;
     z-index: 100;
     left: -12px;
-    padding: 0 15px 20px 30px;
+    padding: 0 15px 10px 30px;
     min-height: 35px;
-    height: 300px;
+    max-height: 365px;
     overflow: scroll;
     margin-bottom: 25px;
 }
@@ -656,7 +668,6 @@ a #infoBannerText { /* for the certification text I think */
 }
 
 .cert-text {
-    padding: 0 1em;
     width: 220px;  
     position: relative;
     top: 5px;
@@ -666,6 +677,20 @@ a #infoBannerText { /* for the certification text I think */
     max-height: 300px;
     overflow: scroll;
     margin: 0 10px 25px;
+}
+
+a .cert-text {
+    padding: 0 0 5px !important;
+    margin: 0 0 25px;
+}
+
+#profile a .cert-text {
+    padding: 0 0 12px !important;
+    margin: 0 0 10px
+}
+
+#profile hr {
+    margin: 0 0 .75em 0;
 }
 
 #energyAudit,
@@ -720,24 +745,26 @@ a #infoBannerText { /* for the certification text I think */
     display: inline;
     float:left;
 }
-
 #mapHeaders li:first-child {
-    width:150px;
+    width:140px;
     text-align:left;
 }
-
 #mapHeaders li:nth-child(2) {
-    width:233px;
+    width:378px;
 }
-
 #mapHeaders li:nth-child(3) {
-    width:258px;
+    width:170px;
 }
-
 #mapHeaders li:nth-child(4)
 {
-    width:258px;
+    width:398px;
 }
+#mapHeaders li:nth-child(5)
+{
+    width:246px;
+    display: none;
+}
+
 #mapReturn {
     cursor: pointer;
     font-size: 10px;
@@ -753,7 +780,7 @@ a #infoBannerText { /* for the certification text I think */
     text-align: center;
     padding:5px;
     position: relative;
-    bottom: 72px;
+    bottom: 50px;
 }
 
 
@@ -860,7 +887,7 @@ a #certLearnMore {
     .entry-content ol,
     .entry-summary ol,
     .comment-content ol {
-        margin-left: 1em;
+        margin-left: 2em;
     }
 }
 

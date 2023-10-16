@@ -15,6 +15,7 @@
             <li>Potential Entry Points</li>
             <li>Professional Certifications</li>
             <li>Energy Careers & Specializations</li>
+            <li>Sidebar Content - PLACEHOLDER</li>
         </ul>
     </div>
 
@@ -459,9 +460,9 @@
     <div id="deets-pane" class="accordion cert-tab">
       <p id="deets"></p>
     </div>
-    <div id="task-pane" class="accordion cert-tab">
+    <!--<div id="task-pane" class="accordion cert-tab">
       <p id="task"></p>
-    </div>
+    </div> -->
     <div id="comp-pane" class="accordion cert-tab">
       <p id="comp"></p>
     </div>
